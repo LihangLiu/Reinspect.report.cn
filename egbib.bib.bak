@@ -119,3 +119,11 @@
   pages={1440--1448},
   year={2015}
 }
+
+@inproceedings{vu2015context,
+  title={Context-aware CNNs for person head detection},
+  author={Vu, Tuan-Hung and Osokin, Anton and Laptev, Ivan},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  pages={2893--2901},
+  year={2015}
+}

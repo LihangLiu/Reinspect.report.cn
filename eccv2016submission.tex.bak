@@ -72,7 +72,7 @@ The adaptation architecture of our approach consists of two streams -- source st
 \begin{eqnarray}
 % \nonumber to remove numbering (before each equation)
   L(\theta^{T}|{\bf X}^{S},{\bf B}^{S},{\bf X}^{T},{\bf \tilde{B}}^{T},\theta^{S}) &=& L_{S} + \alpha * L_{U} \\
-  L_{S} &=&  \Sigma^{N^{T}}_{j=1}{\Sigma^{N^{T}_{J}}_{k=1}( r(\theta^{T}|x^{T}_{j},\tilde{b}^{T}_{j,k})+c(\theta^{T}|x^{T}_{j},\tilde{b}^{T}_{j,k}) )} \\
+  L_{S} &=&  \sum^{N^{T}}_{j=1}{\sum^{N^{T}_{J}}_{k=1}( r(\theta^{T}|x^{T}_{j},\tilde{b}^{T}_{j,k})+c(\theta^{T}|x^{T}_{j},\tilde{b}^{T}_{j,k}) )} \\
   L_{U} &=& L_{MMD}(\theta^{T}|{\bf X}^{S},{\bf X}^{T},\theta^{S})
 \end{eqnarray}
 where $L_{S}$ is supervised loss to learn the scene-specific detector and $L_{U}$ is the unsupervised regularizer part. $r(\cdot)$ is a regression loss for bounding box location, like norm-1 loss, and $c(\cdot)$ is a classification loss for bounding box confidence, like cross-entropy loss. And $L_{MMD}(\cdot)$ is the MMD-based loss for unsupervised regularization. Coefficient $\alpha$ balance the effect of supervised and unsupervised loss. We set $\alpha = 10$ in our experiments.
@@ -110,15 +110,27 @@ As the training set on target domain auto-annotated for the training of first it
 \subsection{Unsupervised weights regularizer on Element-wise Multiply Layer}
 
 \subsubsection{Element-wise Multiply Layer}
-In deep neural network, the last full connected layer serves as an decoder to decode rich information contained in the last feature vector into final outputs. We denote the last feature vector, parameters of the last full connected layer and final outputs as ${\bf F}_{(N^{B}xN^{D})}$, ${\bf C}_{(N^{D}xN^{P})}$ and ${\bf P}_{(N^{B}xN^{P})}$, respectively. The operation of full connected layer can be formulated as matrix multiply:
-\begin{equation}\label{1}
-  P = F * C
-\end{equation}
-where $C = [c_]$ is the parameters of last full connected layer and $T$ stands for matrix transpose.
-$Y(N,O) = X(N,I)*K(I,O)$. $Y_{n,o} = \sum_{i}{X_{n,i}*K_{i,o}}$ We separate the former formula into two part: M(N,O,I). Element-wise layer $M_{n,o,i} = X_{n,i}*K_{i,o}$ and sum layer $Y_{n,o} = M_{n,o,:}*1(I)$. We transform the last inner product layer (last feature vector layer) into equivalent element-wise multiply layer and sum layer, thus this element-wise layer is the last layer before output layer with parameter. Fig x (!) illustrates the transform.
+\label{section:Element-wise Multiply Layer}
+In deep neural network, the last full connected layer serves as an decoder to decode rich information contained in the last feature vector into final outputs. We denote the last feature vector, parameters of the last full connected layer and final outputs as ${\bf F}_{(N^{B}\times N^{D})}$, ${\bf C}_{(N^{D}\times N^{O})}$ and ${\bf P}_{(N^{B}\times N^{O})}$, respectively. The operation of full connected layer can be formulated as matrix multiply:
+\begin{eqnarray}
+% \nonumber to remove numbering (before each equation)
+  {\bf P} &=& {\bf F}*{\bf C} \\
+  P_{b,o} &=&  \sum_{d}{F_{b,d}*K_{d,o}}
+\end{eqnarray}
+Inspired by this form, we separate the above formula into two sub-operations -- element-wise multiply and sum, which can be formulated as:
+\begin{eqnarray}
+% \nonumber to remove numbering (before each equation)
+  M_{b,o,d} &=& F_{b,d} * C_{d,o} \\
+  P_{b,o} &=& \sum_{d}{M_{b,o,d}}
+\end{eqnarray}
+where ${\bf M}_{(N^{B}\times N^{O}\times N^{D})} = [\vec{m}_{b,o}]$ is the parameter tensor of element-wise multiply operations. $\vec{m}_{b,o}$ is a vector with $N^{D}$ dimensions, which will be the basis of unsupervised regularizer. Finally, we can equivalent-transform the last full connected layer between the last feature vector layer and final outputs layer into element-wise multiply layer and sum layer. Fig x (!) illustrates the transform.
 
 \subsubsection{Unsupervised weights regularizer on Element-wise Multiply Layer}
-In works [][][], the last feature vector layer are regarded as the final representation of images. xx's [](footnote) believes that the distribution of the final representation on both source and target domain should be similar. In this paper, we assume that the distribution of the last element-wise layer on both source and target domain also should be similar. In the last element-wise multiply layer, every dimension may contribute to the final output. However, as the old model on source domain are trained with tens of thousands of images, the distribution of these dimensions should be consistent with that of source domain when adapting deep network on target domain. We utilize MMD (maximum mean discrepancy) to encode the similarity of element-wise multiply layer of source domain and target domain.
+In works [decaf][][], the last feature vector layer are regarded as the final representation of images. (how to introduce beyond sharing weigths) In domain adaptation, when generic deep model are trained with abundant data from source domain, the last element-wise layer mentioned in Sec \ref{section:Element-wise Multiply Layer} also includes rich information leading to the final output. In this paper, we assume that the distribution of $\vec{m}_{b,o}$ of the last element-wise layer on both source and target domain also should be similar. In the last element-wise multiply layer, every dimension of $\vec{m}_{b,o}$ may contribute to the final output. However, as the old model on source domain are trained with abundant images, the distribution of $\vec{m}^{T}_{b,o}$ should be consistent compared with $\vec{m}^{S}_{b,o}$ of source domain when adapting deep network on target domain. We utilize MMD (maximum mean discrepancy) to encode the similarity of element-wise multiply layer of source domain and target domain:
+\begin{equation}\label{equation:LMMD}
+  L_{MMD}(\theta^{T}|{\bf X}^{S},{\bf X}^{T},\theta^{S}) = \frac{1}{N^{O}} \sum^{N^{O}}_{o=1}{\parallel \frac{1}{N^{B}}\sum^{N^{B}}_{b=1}{\vec{m}^{T}_{b,o}} - \frac{1}{N^{B}}\sum^{N^{B}}_{b=1}{\vec{m}^{S}_{b,o}} {\parallel}^{2}  }
+\end{equation}
+which can also interpreted as the Euclidean distance between the center of $\vec{m}^{T}_{b,o}$ and $\vec{m}^{S}_{b,o}$. It's unpractical to get the distribution of the whole training set, while too few images cannot obtain a stable center for regularization. In our experiments, the $L_{MMD}(\cdot)$ loss is calculated for every batch.
 
 \subsection{Training}
 balabala...

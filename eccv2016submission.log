@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.10)  23 MAY 2016 18:24
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.10)  23 MAY 2016 19:42
 entering extended mode
 **C:/New*Dist*Assumption/Graduation*Project/ECCV2016-Workshop*on*Crowd*Understa
-nding/eccv2016kit/eccv2016submission.tex
+nding/Reinspect.report/eccv2016submission.tex
 
 ("C:/New Dist Assumption/Graduation Project/ECCV2016-Workshop on Crowd Understa
-nding/eccv2016kit/eccv2016submission.tex"
+nding/Reinspect.report/eccv2016submission.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for loaded.
 
 ("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\eccv2016kit\llncs.cls"
+nding\Reinspect.report\llncs.cls"
 Document Class: llncs 2013/09/27 v2.18 
  LaTeX document class for Lecture Notes in Computer Science
 (C:\CTEX\MiKTeX\tex\latex\base\article.cls
@@ -274,15 +274,15 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 Document Style - pseudocode environments for use with the `algorithmicx' style
 )
 ("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\eccv2016kit\ruler.sty"
+nding\Reinspect.report\ruler.sty"
 Package: ruler 
 
 ("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\eccv2016kit\eso-pic.sty"
+nding\Reinspect.report\eso-pic.sty"
 Package: eso-pic 2002/11/16 v1.1b eso-pic (RN)
 
 ("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\eccv2016kit\cvpr_eso.sty"
+nding\Reinspect.report\cvpr_eso.sty"
 
 LaTeX Warning: You have requested package `eso-pic',
                but the package provides `cvpr_eso'.
@@ -337,7 +337,7 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 
 (C:\CTEX\MiKTeX\tex\latex\geometry\geometry.cfg))
 ("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\eccv2016kit\eccv2016submission.aux")
+nding\Reinspect.report\eccv2016submission.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
@@ -430,36 +430,36 @@ Underfull \vbox (badness 1953) has occurred while \output is active []
 
 ]
 ("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\eccv2016kit\eccv2016submission.bbl") [15
+nding\Reinspect.report\eccv2016submission.bbl") [15
 
 ]
 ("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\eccv2016kit\eccv2016submission.aux") ) 
+nding\Reinspect.report\eccv2016submission.aux") ) 
 Here is how much of TeX's memory you used:
- 3716 strings out of 495354
- 48624 string characters out of 3183858
- 124416 words of memory out of 3000000
- 6812 multiletter control sequences out of 15000+200000
+ 3717 strings out of 495354
+ 48723 string characters out of 3183858
+ 124420 words of memory out of 3000000
+ 6813 multiletter control sequences out of 15000+200000
  14240 words of font info for 53 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 29i,10n,25p,1461b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/CTEX/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmbx10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/CTEX/MiKTeX/font
-s/type1/public/amsfonts/cm/cmcsc10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:
-/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/CTEX/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmmi6.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/CTEX/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/CTEX/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pf
-b><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr9.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmss10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/CTEX
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/CTEX/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
-7.pfb>
-Output written on eccv2016submission.pdf (15 pages, 257326 bytes).
+ 29i,10n,25p,1466b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/CTEX/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx
+12.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/CTEX/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmex10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pf
+b><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/CTEX/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi6.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/CTE
+X/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/CTEX/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmr10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+r6.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmss10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:
+/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/CTEX/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmsy7.pfb>
+Output written on eccv2016submission.pdf (15 pages, 258493 bytes).
 PDF statistics:
  131 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

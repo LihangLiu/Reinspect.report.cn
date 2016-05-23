@@ -80,7 +80,7 @@ where $L_{S}$ is supervised loss to learn the scene-specific detector and $L_{U}
 \subsection{Detection Network}
 \label{section:Detection Network}
 The generic model \footnote{Proposed by Russel et al.} used in our adaptation architecture for source and target stream is an end to end detection network without any precomputed region proposals needed. It consists of a GoogLeNet \cite{szegedy2015going} for feature extraction and a RNN-based decoder for output of bounding box and corresponding confidence, as shown in Fig x(!). Firstly, the GoogLeNet model encode the image into a feature map (15x20x1024) of which each 1024 dimension vector are data representation of its receptive field corresponding to a subregion of the image. Then the RNN-based layers with batch size 300 will decode the data representation and sequentially predict 5 possible bounding boxes by the order of its corresponding confidence. Finally, all outputs are summarized to give final detection results. When trained with abundant samples from source domain, the obtained model has a high precision on target domain, however, its recall is low. Also, different from other detection network \cite{girshick2015fast,vu2015context}, which need precomputed proposals for classification and fine regression, this generic model directly predict bounding boxes with high confidence. Thus, negative instances may contain people and non-people predictions, and cannot be employed in adaptation training.
- 
+
 
 \subsection{Iterative Algorithm}
 In this section we introduce the iteration algorithm as training method at adaptation stage. To generate the auto-annotated data for the first iteration, we utilize the generic model well-trained on source domain, which results in training set on the target domain. As mentioned in Sec \ref{section:Detection Network}, the training set on target domain auto-annotated by generic model have low recall and high precision. At subsequent iterations, training set on target domain are auto-annotated by upgraded model resulting from training of last iteration. Among every iteration, these auto-annotated data are used as training data to upgrade the deep network.
@@ -99,7 +99,7 @@ As the training set on target domain auto-annotated for the training of first it
 \indent \indent balbal \\
 \indent \indent balbabla \\
 \indent \indent Gi = Gi + random samples from source domain \\
-\indent \indent Take Gi as training data to upgrade $M_{i}$ into $M_{i+1}$ 
+\indent \indent Take Gi as training data to upgrade $M_{i}$ into $M_{i+1}$
 \EndFor \\
 \indent $M_{N^{I}}$: final model.
 \EndProcedure
@@ -132,20 +132,19 @@ In works [decaf][][], the last feature vector layer are regarded as the final re
 \end{equation}
 which can also interpreted as the Euclidean distance between the center of $\vec{m}^{T}_{b,o}$ and $\vec{m}^{S}_{b,o}$. It's unpractical to get the distribution of the whole training set, while too few images cannot obtain a stable center for regularization. In our experiments, the $L_{MMD}(\cdot)$ loss is calculated for every batch.
 
-\subsection{Training}
-balabala...
-
-
 
 
 \section{Experiment Results}
+
+\subsection{Experimental Settings}
+We use deep learning framework Caffe \cite{jia2014caffe} as the adaptation architecture of our approach. During the adaptation, we set learning rate as 0.01 and momentum as 0.5. For each iteration, 100 auto-annotated images from target domain and 1000 annotated images from source domain are used for training.
 
 \subsection{Domain Adaptation on Crowd Dataset}
 We firstly obtained the generic model by training deep detection network on Brainwash Dataset released on http://d2.mpi-inf.mpg.de/datasets. Brainwash Dataset consists of over 11917 images from 3 crowded scenes, as shown in Fig x.1. To evaluate the performance of our approach for domain adaptation, we collected 5 datasets of images from 5 different scenes as target domain. Unsupervised domain adaptation training are performed separately on these 5 datasets. For each dataset, 100 images are annotated for evaluation and the rest of 900 unannotated images are used for unsupervised domain adaptation training. Examples of images on both source domain and target domain are shown in Fig. x.
 Based on iteration algorithm, both auto-labeled images from target domain and labeled images from source domain are alternately sampled for training, with unsupervised MMD regularizer on last element-wise multiply layer. To demonstrate the effectiveness of our approach, 3 methods are compared:
 \begin{itemize}
 \item Generic model trained on brainwash dataset.
-\item Only auto-labeled samples on target domain are used for training, without unsupervised weights regularizer.
+\item Only auto-labeled samples on target domain are used for training, with MMD regularizer on last element-wise multiply layer as unsupervised weights regularizer.
 \item Both auto-labeled images from target domain and labeled images from source domain are alternately sampled for training, with MMD regularizer on last feature vector as unsupervised weights regularizer.
 \item Both auto-labeled images from target domain and labeled images from source domain are alternately sampled for training, with MMD regularizer on last element-wise multiply layer as unsupervised weights regularizer.
 \end{itemize}

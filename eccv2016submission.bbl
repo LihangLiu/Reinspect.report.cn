@@ -95,4 +95,10 @@ Vu, T.H., Osokin, A., Laptev, I.:
 \newblock In: Proceedings of the IEEE International Conference on Computer
   Vision. (2015)  2893--2901
 
+\bibitem{jia2014caffe}
+Jia, Y., Shelhamer, E., Donahue, J., Karayev, S., Long, J., Girshick, R.,
+  Guadarrama, S., Darrell, T.:
+\newblock Caffe: Convolutional architecture for fast feature embedding.
+\newblock arXiv preprint arXiv:1408.5093 (2014)
+
 \end{thebibliography}
