@@ -1,0 +1,121 @@
+@incollection{zeng2014deep,
+  title={Deep learning of scene-specific classifier for pedestrian detection},
+  author={Zeng, Xingyu and Ouyang, Wanli and Wang, Meng and Wang, Xiaogang},
+  booktitle={Computer Vision--ECCV 2014},
+  pages={472--487},
+  year={2014},
+  publisher={Springer}
+}
+@incollection{saenko2010adapting,
+  title={Adapting visual category models to new domains},
+  author={Saenko, Kate and Kulis, Brian and Fritz, Mario and Darrell, Trevor},
+  booktitle={Computer Vision--ECCV 2010},
+  pages={213--226},
+  year={2010},
+  publisher={Springer}
+}
+@inproceedings{kulis2011you,
+  title={What you saw is not what you get: Domain adaptation using asymmetric kernel transforms},
+  author={Kulis, Brian and Saenko, Kate and Darrell, Trevor},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2011 IEEE Conference on},
+  pages={1785--1792},
+  year={2011},
+  organization={IEEE}
+}
+@inproceedings{gopalan2011domain,
+  title={Domain adaptation for object recognition: An unsupervised approach},
+  author={Gopalan, Raghuraman and Li, Ruonan and Chellappa, Rama},
+  booktitle={Computer Vision (ICCV), 2011 IEEE International Conference on},
+  pages={999--1006},
+  year={2011},
+  organization={IEEE}
+}
+
+@article{mesnil2012unsupervised,
+  title={Unsupervised and Transfer Learning Challenge: a Deep Learning Approach.},
+  author={Mesnil, Gr{\'e}goire and Dauphin, Yann and Glorot, Xavier and Rifai, Salah and Bengio, Yoshua and Goodfellow, Ian J and Lavoie, Erick and Muller, Xavier and Desjardins, Guillaume and Warde-Farley, David and others},
+  journal={ICML Unsupervised and Transfer Learning},
+  volume={27},
+  pages={97--110},
+  year={2012}
+}
+
+@article{wang2014scene,
+  title={Scene-specific pedestrian detection for static video surveillance},
+  author={Wang, Xiaogang and Wang, Meng and Li, Wei},
+  journal={Pattern Analysis and Machine Intelligence, IEEE Transactions on},
+  volume={36},
+  number={2},
+  pages={361--374},
+  year={2014},
+  publisher={IEEE}
+}
+
+@inproceedings{hattori2015learning,
+  title={Learning scene-specific pedestrian detectors without real data},
+  author={Hattori, Hironori and Naresh Boddeti, Vishnu and Kitani, Kris M and Kanade, Takeo},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={3819--3827},
+  year={2015}
+}
+
+@inproceedings{pishchulin2011learning,
+  title={Learning people detection models from few training samples},
+  author={Pishchulin, Leonid and Jain, Arjun and Wojek, Christian and Andriluka, Mykhaylo and Thorm{\"a}hlen, Thorsten and Schiele, Bernt},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2011 IEEE Conference on},
+  pages={1473--1480},
+  year={2011},
+  organization={IEEE}
+}
+
+@inproceedings{huang2006correcting,
+  title={Correcting sample selection bias by unlabeled data},
+  author={Huang, Jiayuan and Gretton, Arthur and Borgwardt, Karsten M and Sch{\"o}lkopf, Bernhard and Smola, Alex J},
+  booktitle={Advances in neural information processing systems},
+  pages={601--608},
+  year={2006}
+}
+
+@article{gretton2009covariate,
+  title={Covariate shift by kernel mean matching},
+  author={Gretton, Arthur and Smola, Alex and Huang, Jiayuan and Schmittfull, Marcel and Borgwardt, Karsten and Sch{\"o}lkopf, Bernhard},
+  journal={Dataset shift in machine learning},
+  volume={3},
+  number={4},
+  pages={5},
+  year={2009},
+  publisher={MIT press Cambridge, MA}
+}
+
+@inproceedings{gong2013connecting,
+  title={Connecting the dots with landmarks: Discriminatively learning domain-invariant features for unsupervised domain adaptation},
+  author={Gong, Boqing and Grauman, Kristen and Sha, Fei},
+  booktitle={Proceedings of The 30th International Conference on Machine Learning},
+  pages={222--230},
+  year={2013}
+}
+
+@incollection{ghifary2014domain,
+  title={Domain adaptive neural networks for object recognition},
+  author={Ghifary, Muhammad and Kleijn, W Bastiaan and Zhang, Mengjie},
+  booktitle={PRICAI 2014: Trends in Artificial Intelligence},
+  pages={898--904},
+  year={2014},
+  publisher={Springer}
+}
+
+@inproceedings{szegedy2015going,
+  title={Going deeper with convolutions},
+  author={Szegedy, Christian and Liu, Wei and Jia, Yangqing and Sermanet, Pierre and Reed, Scott and Anguelov, Dragomir and Erhan, Dumitru and Vanhoucke, Vincent and Rabinovich, Andrew},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={1--9},
+  year={2015}
+}
+
+@inproceedings{girshick2015fast,
+  title={Fast r-cnn},
+  author={Girshick, Ross},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  pages={1440--1448},
+  year={2015}
+}
