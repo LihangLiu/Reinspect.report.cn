@@ -19,13 +19,6 @@ Gopalan, R., Li, R., Chellappa, R.:
 \newblock In: Computer Vision (ICCV), 2011 IEEE International Conference on,
   IEEE (2011)  999--1006
 
-\bibitem{mesnil2012unsupervised}
-Mesnil, G., Dauphin, Y., Glorot, X., Rifai, S., Bengio, Y., Goodfellow, I.J.,
-  Lavoie, E., Muller, X., Desjardins, G., Warde-Farley, D.,  et~al.:
-\newblock Unsupervised and transfer learning challenge: a deep learning
-  approach.
-\newblock ICML Unsupervised and Transfer Learning \textbf{27} (2012)  97--110
-
 \bibitem{huang2006correcting}
 Huang, J., Gretton, A., Borgwardt, K.M., Sch{\"o}lkopf, B., Smola, A.J.:
 \newblock Correcting sample selection bias by unlabeled data.
@@ -37,19 +30,6 @@ Gretton, A., Smola, A., Huang, J., Schmittfull, M., Borgwardt, K.,
   Sch{\"o}lkopf, B.:
 \newblock Covariate shift by kernel mean matching.
 \newblock Dataset shift in machine learning \textbf{3}(4) (2009) ~5
-
-\bibitem{gong2013connecting}
-Gong, B., Grauman, K., Sha, F.:
-\newblock Connecting the dots with landmarks: Discriminatively learning
-  domain-invariant features for unsupervised domain adaptation.
-\newblock In: Proceedings of The 30th International Conference on Machine
-  Learning. (2013)  222--230
-
-\bibitem{ghifary2014domain}
-Ghifary, M., Kleijn, W.B., Zhang, M.:
-\newblock Domain adaptive neural networks for object recognition.
-\newblock In: PRICAI 2014: Trends in Artificial Intelligence.
-\newblock Springer (2014)  898--904
 
 \bibitem{wang2014scene}
 Wang, X., Wang, M., Li, W.:
@@ -68,6 +48,26 @@ Hattori, H., Naresh~Boddeti, V., Kitani, K.M., Kanade, T.:
 \newblock Learning scene-specific pedestrian detectors without real data.
 \newblock In: Proceedings of the IEEE Conference on Computer Vision and Pattern
   Recognition. (2015)  3819--3827
+
+\bibitem{mesnil2012unsupervised}
+Mesnil, G., Dauphin, Y., Glorot, X., Rifai, S., Bengio, Y., Goodfellow, I.J.,
+  Lavoie, E., Muller, X., Desjardins, G., Warde-Farley, D.,  et~al.:
+\newblock Unsupervised and transfer learning challenge: a deep learning
+  approach.
+\newblock ICML Unsupervised and Transfer Learning \textbf{27} (2012)  97--110
+
+\bibitem{gong2013connecting}
+Gong, B., Grauman, K., Sha, F.:
+\newblock Connecting the dots with landmarks: Discriminatively learning
+  domain-invariant features for unsupervised domain adaptation.
+\newblock In: Proceedings of The 30th International Conference on Machine
+  Learning. (2013)  222--230
+
+\bibitem{ghifary2014domain}
+Ghifary, M., Kleijn, W.B., Zhang, M.:
+\newblock Domain adaptive neural networks for object recognition.
+\newblock In: PRICAI 2014: Trends in Artificial Intelligence.
+\newblock Springer (2014)  898--904
 
 \bibitem{pishchulin2011learning}
 Pishchulin, L., Jain, A., Wojek, C., Andriluka, M., Thorm{\"a}hlen, T.,
@@ -94,6 +94,13 @@ Vu, T.H., Osokin, A., Laptev, I.:
 \newblock Context-aware cnns for person head detection.
 \newblock In: Proceedings of the IEEE International Conference on Computer
   Vision. (2015)  2893--2901
+
+\bibitem{everingham2015pascal}
+Everingham, M., Eslami, S.A., Van~Gool, L., Williams, C.K., Winn, J.,
+  Zisserman, A.:
+\newblock The pascal visual object classes challenge: A retrospective.
+\newblock International Journal of Computer Vision \textbf{111}(1) (2015)
+  98--136
 
 \bibitem{jia2014caffe}
 Jia, Y., Shelhamer, E., Donahue, J., Karayev, S., Long, J., Girshick, R.,
