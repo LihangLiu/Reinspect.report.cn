@@ -30,7 +30,7 @@
 \maketitle
 
 \begin{abstract}
-This paper addresses the problem of unsupervised domain adaptation on the task of people detection in crowded scenes. That is, given a well-trained deep detection model on source domain, we aim to adapt it into the target domain for which no annotations are needed. Firstly, we utilize iterative algorithm to auto-annotate samples on target domain. While auto-annotated samples include noise, the rate of false positive tends to explored. Thus, we mixed into training examples from source domain to suppress the data noise. Furthermore, we transform the inner product layers of our network into two separate layers and proposed a weights regularizer to avoid overfitting. Compared to generic model without any fine tuning on samples on target domain, the proposed method increased recall by $xx\%$ with precision drop from $xx\%$ to $xx\%$ on the target scenes. Also, we perform our algorithm on traditional domain adaptation dataset Office Dataset and our results are state of art.
+This paper addresses the problem of unsupervised domain adaptation on the task of people detection in crowded scenes. That is, given a well-trained deep detection model on source domain, we aim to adapt it into the target domain for which no annotations are needed. Firstly, we utilize iterative algorithm to auto-annotate samples on target domain. While auto-annotated samples include noise, the rate of false positive tends to explored. Thus, we mixed into training examples from source domain to suppress the data noise. Furthermore, we transform the inner product layers of our network into two separate layers and proposed a weights regularizer to avoid overfitting. Compared to generic model without any fine tuning on samples on target domain, the proposed method increased recall by $xx\%$ with precision drop from $xx\%$ to $xx\%$ on the target scenes. Also, we perform our algorithm on standard domain adaptation benchmarks Office Dataset with both supervised and unsupervised settings and our results are state of art.
 
 \keywords{Unsupervised Domain Adaptation, Deep Neural Network, People Detection}
 \end{abstract}
@@ -44,16 +44,19 @@ When labelled data are few and even lack of in target domain, domain adaptation 
 \par
 In this paper, we proposed a new approach of unsupervised deep domain adaptation on people detection. Using generic model as initialization, we firstly use iterative algorithm to auto-annotate samples on target domain as fake ground truth. During every iteration, target model are updated and utilized to auto-annotate samples for next iteration. However, the data noise in auto-annotated dataset, like lack of true negative instances and false positive instances, will leads to exploration of false positive rate, as well as impeding further increase of recall. In order to eliminate the effect of data noise, two methods are proposed to regularize the training of the deep network. On the one hand, we mixed into auto-annotated dataset with annotated samples from source domain to compensate the lack of true negative instances. On the other hand, we separate the operation of last inner product layer of our network into two sub-operations -- element-wise multiply and sum operations, resulting new element-wise multiply layer and sum layer. Thus, a weights regularizer on element-wise layer can be added into the deep network as unsupervised loss to avoid exploration of false positive rate and boost recall.
 \par
-Also, we further evaluate our method on traditional semi-supervised domain adaptation dataset (Office dataset). (difference compared to people detection task). (Results)
+Also, we further evaluate our method on standard domain adaptation benchmark Office Dataset. The results of our adaptation approach outperform previously published works on both supervised and unsupervised settings, which demonstrate the feasibility of our adaptation approach on both detection and classification tasks.
 \par
-The contributions of our work are n folds.
+The contributions of our work are three folds.
 \begin{itemize}
 \item We provided a feasible scheme to shift deep detection network well-trained on the source scene to target scenes on which no annotated data are needed. This makes easier the widely deploy of deep neural network on various surveillance applications.
 \item As most algorithms focus on the last feature vector (also last inner product layer), we have one step further and transform the last inner product layer into element-wise multiply layer and sum layer. A weight regularizer can, thus, be added on element-wise layer to have better effect on suppressing exploration of false positive rate and increasing recall.
-\item Experiments on traditional domain adaptation dataset also demonstrate the effectiveness of our approach on other deep domain adaptation tasks.
+\item Experiments on standard domain adaptation benchmarks also demonstrate the effectiveness of our approach on other deep domain adaptation tasks.
 \end{itemize}
 
+The remainder of this paper is organized as follows. Section \ref{section:Relate Work} reviews related works. Section \ref{section:Our Approach} presents the details of our approach. Experimental results are shown in Section \ref{section:Experiment Results}. Section \ref{section:Conclusions} concludes the paper.
+
 \section{Relate Work}
+\label{section:Relate Work}
 \par
 In many detection works, generic model trained by large amount of samples on source domain are directly utilized to detect on target domain. They assume that samples on target domain are subsets of source domain. However, when the distribution of data on target and source domain varies largely, the performance will drop significantly. Domain adaptation aims to reduce the amount of data needed for target domain.
 
@@ -64,13 +67,13 @@ Another group of works \cite{huang2006correcting,gretton2009covariate,gong2013co
 There are also works on deep adaptation to construct scene-specific detector. Wang et al.\cite{wang2014scene} explored context cues to compute confidence, and \cite{zeng2014deep} learns distributions of target samples and proposed a cluster layer for scene-specific visual patterns. These works reweighted auto-annotated samples for their final object function and additional context cues are needed for reliable performance. Alternately, Hattori el al. \cite{hattori2015learning} learned scene-specific detector by generating a spatially-varying pedestrian appearance model. And Pishchulin et al. \cite{pishchulin2011learning} used 3D shape models to generate training data. However, Synthesis for domain adaptation are also costly.
 
 \section{Our Approach}
-\label{sec:Our Approach}
+\label{section:Our Approach}
 
 In this section, we introduce our unsupervised deep domain adaptation approach on the task of people detection. We denote the training images of source domain as  ${\bf X}^{S} = \{x^{S}_{i}\}^{N^{S}}_{i=1}$ and that of target domain as ${\bf X}^{T} = \{x^{T}_{j}\}^{N^{T}}_{j=1}$. For each image in source domain, we have corresponding annotations denoted as ${\bf B}^{S}_{i} = \{b^{S}_{i,k}\}^{N^{S}_{i}}_{k=1}$ with $b^{S}_{i,k} = (x,y,w,h) \in R^{4}$, however, the annotations for images in target domain are auto-labelled which we denote as ${\bf \tilde{B}}^{T}_{j} = \{\tilde{b}^{T}_{j,k}\}^{N^{T}_{j}}_{k=1}$ with $\tilde{b}^{T}_{j,k} = (\tilde{x},\tilde{y},\tilde{w},\tilde{h}) \in R^{4}$. The annotations for target domain changes for every iteration during the adaptation process. Human annotated images on target domain are used only for evaluation.
 
-The adaptation architecture of our approach consists of two streams -- source stream $M^{S}$ and target stream $M^{T}$, as shown in Fig x(!). Source stream takes samples from source domain as input, and target stream operates on samples from target domain. These two streams can utilize any end to end deep detection network as their model. Here we use the below mentioned network in Sec \ref{section:Detection Network} in our experiment. In initialization stage, we firstly use abundant annotated samples from source domain to train the model of source stream under a supervised loss function to regress bounding box. After its convergence, the weights of the model of source stream are used to initialize target stream. In adaptation stage, iteration algorithm is used as training method. Target model in target stream is trained and upgraded in this process while source stream stays static. 
+The adaptation architecture of our approach consists of two streams -- source stream $M^{S}$ and target stream $M^{T}$, as shown in Fig x(!). Source stream takes samples from source domain as input, and target stream operates on samples from target domain. These two streams can utilize any end to end deep detection network as their model. Here we use the below mentioned network in Sec \ref{section:Detection Network} in our experiment. In initialization stage, we firstly use abundant annotated samples from source domain to train the model of source stream under a supervised loss function to regress bounding box. After its convergence, the weights of the model of source stream are used to initialize target stream. In adaptation stage, iteration algorithm is used as training method. Target model in target stream is trained and upgraded in this process while source stream stays static.
 
-Both supervised loss and unsupervised regularizer are designed as loss function to train the target stream for learning scene-specific detector as well as avoid overfitting. For supervised loss, the auto-annotated data can be used as training labels. While for unsupervised regularizer, we take the source model in source stream as a reference for feature vector distribution. We defined the combination of supervised loss and unsupervised loss as our loss function for adaptation:
+Both supervised loss and unsupervised regularizer are designed as loss function to train the target stream for learning scene-specific detector as well as avoid overfitting. For supervised loss, the auto-annotated data can be used as training labels. As the auto-annotated samples contains data error, an unsupervised loss are required to regularize the network. We take the source model in source stream as a reference for feature vector distribution. We defined the combination of supervised loss and unsupervised loss as our loss function for adaptation:
 \begin{eqnarray}
 % \nonumber to remove numbering (before each equation)
   L(\theta^{T}|{\bf X}^{S},{\bf B}^{S},{\bf X}^{T},{\bf \tilde{B}}^{T},\theta^{S}) &=& L_{S} + \alpha * L_{U} \\
@@ -166,7 +169,7 @@ In works [decaf][][], the last feature vector layer are regarded as the final re
 \begin{equation}\label{equation:LMMD}
   L_{MMD}(\theta^{T}|{\bf X}^{S},{\bf X}^{T},\theta^{S}) = \frac{1}{N^{O}} \sum^{N^{O}}_{o=1}{\parallel \frac{1}{N^{B}}\sum^{N^{B}}_{b=1}{\vec{m}^{T}_{b,o}} - \frac{1}{N^{B}}\sum^{N^{B}}_{b=1}{\vec{m}^{S}_{b,o}} {\parallel}^{2}  }
 \end{equation}
-which can also interpreted as the Euclidean distance between the center of $\vec{m}^{T}_{b,o}$ and $\vec{m}^{S}_{b,o}$ across all output nodes. It's unpractical to get the distribution of the whole training set, while too few images cannot obtain a stable center for regularization. In our experiments, the $L_{MMD}(\cdot)$ loss is calculated for every batch. An example comparison of centers of $\vec{m}^{S}_{b_{i},o}$ and $\vec{m}^{S}_{b_{j},o}$ are shown in Fig x(1). 
+which can also interpreted as the Euclidean distance between the center of $\vec{m}^{T}_{b,o}$ and $\vec{m}^{S}_{b,o}$ across all output nodes. It's unpractical to get the distribution of the whole training set, while too few images cannot obtain a stable center for regularization. In our experiments, the $L_{MMD}(\cdot)$ loss is calculated for every batch. An example comparison of centers of $\vec{m}^{S}_{b_{i},o}$ and $\vec{m}^{S}_{b_{j},o}$ are shown in Fig x(1).
 
 \begin{figure}
 \centering
@@ -178,8 +181,9 @@ at $x_s$. }
 \end{figure}
 
 \section{Experiment Results}
+\label{section:Experiment Results}
 
-In this section, we introduce experiment results on both surveillance applications and standard domain adaptation dataset. Our motivation for unsupervised domain adaptation method is for easier deployment of  We firstly evaluate our approach on video surveillance. Then we employ our approach to standard domain adaptation dataset to demonstrate the effectiveness of our method.
+In this section, we introduce experiment results on both surveillance applications and standard domain adaptation dataset. Our motivation for unsupervised domain adaptation method is for easier deployment of  We firstly evaluate our approach on video surveillance. Then we employ our approach to standard domain adaptation benchmarks on both supervised and unsupervised settings to demonstrate the effectiveness of our method.
 
 \begin{figure}
 \centering
@@ -249,6 +253,7 @@ sentence of a figure caption should generally end without a full stop}
 balabala...
 
 \section{Conclusions}
+\label{section:Conclusions}
 
 The paper ends with a conclusion.
 
