@@ -108,4 +108,42 @@ Jia, Y., Shelhamer, E., Donahue, J., Karayev, S., Long, J., Girshick, R.,
 \newblock Caffe: Convolutional architecture for fast feature embedding.
 \newblock arXiv preprint arXiv:1408.5093 (2014)
 
+\bibitem{krizhevsky2012imagenet}
+Krizhevsky, A., Sutskever, I., Hinton, G.E.:
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In: Advances in neural information processing systems. (2012)
+  1097--1105
+
+\bibitem{gong2012geodesic}
+Gong, B., Shi, Y., Sha, F., Grauman, K.:
+\newblock Geodesic flow kernel for unsupervised domain adaptation.
+\newblock In: Computer Vision and Pattern Recognition (CVPR), 2012 IEEE
+  Conference on, IEEE (2012)  2066--2073
+
+\bibitem{fernando2013unsupervised}
+Fernando, B., Habrard, A., Sebban, M., Tuytelaars, T.:
+\newblock Unsupervised visual domain adaptation using subspace alignment.
+\newblock In: Proceedings of the IEEE International Conference on Computer
+  Vision. (2013)  2960--2967
+
+\bibitem{tommasi2013frustratingly}
+Tommasi, T., Caputo, B.:
+\newblock Frustratingly easy nbnn domain adaptation.
+\newblock In: Proceedings of the IEEE International Conference on Computer
+  Vision. (2013)  897--904
+
+\bibitem{chopra2013dlid}
+Chopra, S., Balakrishnan, S., Gopalan, R.:
+\newblock Dlid: Deep learning for domain adaptation by interpolating between
+  domains.
+\newblock In: ICML workshop on challenges in representation learning. Volume~2.
+  (2013)
+
+\bibitem{donahue2013decaf}
+Donahue, J., Jia, Y., Vinyals, O., Hoffman, J., Zhang, N., Tzeng, E., Darrell,
+  T.:
+\newblock Decaf: A deep convolutional activation feature for generic visual
+  recognition.
+\newblock arXiv preprint arXiv:1310.1531 (2013)
+
 \end{thebibliography}

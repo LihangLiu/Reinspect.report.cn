@@ -133,3 +133,23 @@
   Title = {Caffe: Convolutional Architecture for Fast Feature Embedding},
   Year = {2014}
 }
+
+@article{everingham2015pascal,
+  title={The pascal visual object classes challenge: A retrospective},
+  author={Everingham, Mark and Eslami, SM Ali and Van Gool, Luc and Williams, Christopher KI and Winn, John and Zisserman, Andrew},
+  journal={International Journal of Computer Vision},
+  volume={111},
+  number={1},
+  pages={98--136},
+  year={2015},
+  publisher={Springer}
+}
+
+@incollection{saenko2010adapting,
+  title={Adapting visual category models to new domains},
+  author={Saenko, Kate and Kulis, Brian and Fritz, Mario and Darrell, Trevor},
+  booktitle={Computer Vision--ECCV 2010},
+  pages={213--226},
+  year={2010},
+  publisher={Springer}
+}
