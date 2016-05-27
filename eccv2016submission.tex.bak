@@ -7,9 +7,11 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{ruler}
+\usepackage{CJK}
 \usepackage{color}
 \usepackage[width=122mm,left=12mm,paperwidth=146mm,height=193mm,top=12mm,paperheight=217mm]{geometry}
 \begin{document}
+
 % \renewcommand\thelinenumber{\color[rgb]{0.2,0.5,0.8}\normalfont\sffamily\scriptsize\arabic{linenumber}\color[rgb]{0,0,0}}
 % \renewcommand\makeLineNumber {\hss\thelinenumber\ \hspace{6mm} \rlap{\hskip\textwidth\ \hspace{6.5mm}\thelinenumber}}
 % \linenumbers
@@ -29,58 +31,65 @@
 
 \maketitle
 
-\begin{abstract}
-This paper addresses the problem of unsupervised domain adaptation on the task of people detection in crowded scenes. That is, given a well-trained deep detection model on source domain, we aim to adapt it into the target domain for which no annotations are needed. Firstly, we utilize iterative algorithm to auto-annotate samples on target domain. While auto-annotated samples include noise, the rate of false positive tends to explored. Thus, we mixed into training examples from source domain to suppress the data noise. Furthermore, we transform the inner product layers of our network into two separate layers and proposed a weights regularizer to avoid overfitting. Compared to generic model without any fine tuning on samples on target domain, the proposed method increased recall by $xx\%$ with precision drop from $xx\%$ to $xx\%$ on the target scenes. Also, we perform our algorithm on standard domain adaptation benchmarks Office Dataset with both supervised and unsupervised settings and our results are state of art.
+\begin{CJK*}{GBK}{song}
 
-\keywords{Unsupervised Domain Adaptation, Deep Neural Network, People Detection}
+\begin{abstract}
+这篇论文提出了基于无监督场景迁移下的在密集人群中人头检测的问题。也就是给定一个在原场景充分训练好的深度神经网络模型，如何在待迁移场景没有任何标记数据的情况下，训练一个能够识别待迁移场景中人物的模型。首先，我们利用迭代算法来自动标记待迁移场景中的人物。由于自动标记出来的人物数据中存在错误数据，假阳性的数据比例会随着训练迅速增加，影响到整个网络。因此我们将原场景中的标记数据加入到训练数据中，来抑制错误数据。同时，我们将神经网络最后的全连通层等价转化为两个子层。在新添加的子层上加入非监督的正则化函数来防止训练过程中的过拟合。跟将原场景中训练的原模型在没有利用待迁移场景的数据来微调得到的结果相比，我们提出的方法将待迁移场景中人物检测的召回率提高了xx,同时precision只从xx掉到xx。与此同时，我们将我们的算法运用到了标准的迁移学习基准数据库Office数据库，我们的方法在监督场景迁移喝非监督场景迁移都取得了最好的结果。
+\keywords{无监督场景迁移，深度卷积神经网络，人物检测}
 \end{abstract}
 
+　　
 
 \section{Introduction}
 
-Deep neural network has outstanding result on computer vision tasks, however, it require large labelled dataset. In famous challenges like PASCAL VOC and MS COCO, over millions of images with labels are needed for training. In surveillance applications like people detection, the annotation process is even human resource consuming. Till today, there are millions of cameras deployed for surveillance. However, surveillance situations varies in background, lights, viewpoints and so on in real world, which make the labelling work for all surveillance applications ever more unpractice. In the task of people detection, tens of thousands of annotated images are needed to train a deep neural network.
-\par
-When labelled data are few and even lack of in target domain, domain adaptation help to reduce the amount of labelled data needed when given abundant labelled data in source domain. Most traditional works \cite{saenko2010adapting,kulis2011you,gopalan2011domain,huang2006correcting,gretton2009covariate} try to learn a shared representation between source and target domain, or project features into a common subspace. Recently, works are also \cite{wang2014scene,zeng2014deep,hattori2015learning} proposed to learn scene-specific detector by deep architectures. In our task of people detection, we try to shift deep detection network well-trained on the source scene to target scenes on which no annotation are needed.
-\par
-In this paper, we proposed a new approach of unsupervised deep domain adaptation on people detection. Using generic model as initialization, we firstly use iterative algorithm to auto-annotate samples on target domain as fake ground truth. During every iteration, target model are updated and utilized to auto-annotate samples for next iteration. However, the data noise in auto-annotated dataset, like lack of true negative instances and false positive instances, will leads to exploration of false positive rate, as well as impeding further increase of recall. In order to eliminate the effect of data noise, two methods are proposed to regularize the training of the deep network. On the one hand, we mixed into auto-annotated dataset with annotated samples from source domain to compensate the lack of true negative instances. On the other hand, we separate the operation of last inner product layer of our network into two sub-operations -- element-wise multiply and sum operations, resulting new element-wise multiply layer and sum layer. Thus, a weights regularizer on element-wise layer can be added into the deep network as unsupervised loss to avoid exploration of false positive rate and boost recall.
-\par
-Also, we further evaluate our method on standard domain adaptation benchmark Office Dataset. The results of our adaptation approach outperform previously published works on both supervised and unsupervised settings, which demonstrate the feasibility of our adaptation approach on both detection and classification tasks.
-\par
-The contributions of our work are three folds.
+深度卷积神经网络在计算机视觉的任务上有非常突出的表现，但是，大部分的任务都需要大量的标记数据。像著名的PASCAL VOC和MS COCO，需要上千万的带标记的图片数据来完成训练的过程。在监控的运用中，比如人物检测，这个人工标记的过程就更加繁重了，因为需要标记到具体的位置。时至今日，世界上又有着无数的摄像头来担任监控的功能。然而，由于监控场景变化巨大，它受到背景，光线，视角，清晰度等等一系列的不稳定因素的影响，这就使得对于所有的监控场景进行人工标记这个工作更加的不可实施。在人物检测的任务中，需要上万的数据来训练一个好的检测神经网络。
+
+当待迁移场景标记数据非常的少，甚至没有的情况下，场景迁移的任务就是帮忙减少所需要的有标记的数据的数量，当我们在原场景有大量的标记数据，那么这个迁移就需要考虑到原场景和待迁移场景之间的联系。大部分传统的场景迁移的算法\cite{saenko2010adapting,kulis2011you,gopalan2011domain,huang2006correcting,gretton2009covariate}都尝试找到原场景和待迁移场景之间的共同特征，或者将特征投射到高维空间中和子空间中。最近，也有其他工作\cite{wang2014scene,zeng2014deep,hattori2015learning}提出了通过深度网络来学习基于特殊场景的检测工具。在我们的人物检测的任务中，我们尝试着将在原场景中充分训练的深度网络迁移到一个待迁移场景，这个待迁移场景并没有任何标记数据。
+
+在这篇文章中，我们提出了基于人物检测的无监督场景迁移的新算法。使用原场景下的原模型进行初始化，我们首先利用迭代算法来自动标记待迁移场景的图片作为伪真实数据。在每一次迭代中，待迁移场景的模型被更新并用来自动标记下一个迭代需要的训练数据。然后，由于缺乏真阴性数据和伪阳性数据，自动标记数据中的错误将导致伪阳性的比例迅速上升，同时进一步影响到了召回率的提高。为了消除数据噪声的影响，我们提出了两个方法来正则化深度网络的训练。一方面，我们将来自原场景的有标记数据的图片加入了自动标记的数据中，来弥补真阴性数据的不足。另一方面，我们将深度网络中最后的全连通层的操作切分为两个子运算--元素点乘和求和。最后的全连通层也因此可以转化为两个子层，元素点乘层和求和层。基于此，一个无监督的正则化函数可以被添加到深度网络中作为无监督的损失函数来防止伪阳性结果的迅速增加以及增强召回率。
+
+在人物检测的任务之外，我们也添加了基于标准迁移学习基准数据库的实验来评估我们的算法的适用性。我们的算法的迁移结果同时在监督和无监督的设置下超过了之前发布的其他人的工作，这证明了我们的迁移算法有足够的灵活度来处理检测和分类的任务。
+
+这篇文章的贡献有这样三个方面：
 \begin{itemize}
-\item We provided a feasible scheme to shift deep detection network well-trained on the source scene to target scenes on which no annotated data are needed. This makes easier the widely deploy of deep neural network on various surveillance applications.
-\item As most algorithms focus on the last feature vector (also last inner product layer), we have one step further and transform the last inner product layer into element-wise multiply layer and sum layer. A weight regularizer can, thus, be added on element-wise layer to have better effect on suppressing exploration of false positive rate and increasing recall.
-\item Experiments on standard domain adaptation benchmarks also demonstrate the effectiveness of our approach on other deep domain adaptation tasks.
+\item  我们提出了一个可行的解决方案来将在原场景充分训练的深度模型迁移到待迁移场景，而待迁移场景并不需要任何标记数据。这使得深度网络在不同监控情况下的部署变得更为容易。
+\item 由于大部分的算法都关注于最后一层的特征向量，我们往后一步来研究全连通层，并将最后一层全连通层转化为元素点乘层和求和层。因此一个无监督正则化函数可以加到元素点乘层，这样可以在抑制伪阳性和增加召回率方面取得更好的效果。
+\item 我们在标准迁移学习基准数据库的实验也表明了我们在其他深度场景迁移的任务中也可以取得好的结果。
 \end{itemize}
 
-The remainder of this paper is organized as follows. Section \ref{section:Relate Work} reviews related works. Section \ref{section:Our Approach} presents the details of our approach. Experimental results are shown in Section \ref{section:Experiment Results}. Section \ref{section:Conclusions} concludes the paper.
+这篇文章剩下的部分是这样组织的。首先章节\ref{section:Relate Work}回顾了相关的工作，章节 \ref{section:Our Approach}给出了算法的细节部分，实验部分的结果在章节 \ref{section:Experiment Results} 中做出介绍。章节\ref{section:Conclusions} 总结了这篇论文。
+
 
 \section{Relate Work}
 \label{section:Relate Work}
-\par
-In many detection works, generic model trained by large amount of samples on source domain are directly utilized to detect on target domain. They assume that samples on target domain are subsets of source domain. However, when the distribution of data on target and source domain varies largely, the performance will drop significantly. Domain adaptation aims to reduce the amount of data needed for target domain.
 
-Many domain adaptation works tried to learn a common representation space shared between source and target domain. Saenko et al. \cite{saenko2010adapting,kulis2011you} proposed a both linear-transform-based technique and kernel-transform-based technique to minimize domain changes. Gopalan et al. \cite{gopalan2011domain} projected features into Grassmann manifold instead of operating on features of raw data. Alternatively, Mesnil et al. \cite{mesnil2012unsupervised} used transfer learning to obtain good representations. However, these methods are limited because scene-specific features are not learned to boost accuracy. The regularizer of our method are inspired these works.
+在许多检测的工作中，在原场景中的大量数据的训练下得到的模型直接拿来检测待迁移场景的图片。他们假设待迁移场景的图片数据是原场景中图片数据的子集。然而当待迁移场景的数据分布跟原场景的数据分布差别很大时，原模型的表现会下降很多。场景迁移致力于得到更好的模型。
 
-Another group of works \cite{huang2006correcting,gretton2009covariate,gong2013connecting} on domain adaptation is to make the distribution of source and target domain more similar. Among these works, Maximum Mean Discrepancy (MMD) is used to as a metric to reselect samples from source domain in order to have similar distribution as target samples. In \cite{ghifary2014domain}, MMD is incorporated as regularization to reduce distribution mismatch.
+许多场景迁移的工作致力于找到原场景和待迁移场景之间的共同特征。Saenko et al. \cite{saenko2010adapting,kulis2011you}提出了一个基于线性变换的算法和一个基础核变化的算法来减少场景之间的变化。Gopalan et al. \cite{gopalan2011domain}将特征向量映射到Grassmann manifold而不是直接在元数据的特征上进行操作。或者，Mesnil et al. \cite{mesnil2012unsupervised}使用迁移学习的算法来获得好的数据特征表示。然而这些方法都相当的局限，因为他们并没有学习基于特殊场景的特征来增加准确率。我们的正则化函数受到了这些工作的启发。
 
-There are also works on deep adaptation to construct scene-specific detector. Wang et al.\cite{wang2014scene} explored context cues to compute confidence, and \cite{zeng2014deep} learns distributions of target samples and proposed a cluster layer for scene-specific visual patterns. These works reweighted auto-annotated samples for their final object function and additional context cues are needed for reliable performance. Alternately, Hattori el al. \cite{hattori2015learning} learned scene-specific detector by generating a spatially-varying pedestrian appearance model. And Pishchulin et al. \cite{pishchulin2011learning} used 3D shape models to generate training data. However, Synthesis for domain adaptation are also costly.
+另外一组场景迁移的工作\cite{huang2006correcting,gretton2009covariate,gong2013connecting}是将原场景的数据分布跟待迁移场景的数据分布弄得尽量相似。在这些工作中，Maximum Mean Discrepancy (MMD)被用到作为重新从原场景中挑选数据的评估依据，来使得其于待迁移场景的数据分布尽量相似。在工作
+\cite{ghifary2014domain}中，MMD作为正则化工具加入到模型中以减少数据分布之间的差别。
 
-\section{Our Approach}
+同时，在学习基于特殊场景学习的检测算法也有一些工作。Wang et al.\cite{wang2014scene,zeng2014deep}利用了上下文的信息来计算检测物体的置信度，同时他也提出了学习待迁移场景数据分布以及为特定场景的视觉模式设计了聚类层的算法。这些工作依赖于重新给自动标记的数据以计算权重并加入最后的损失函数以及需要额外的上下文设计以获得可靠的结果。同时，Hattori el al. \cite{hattori2015learning}通过生成空间变化的行人模型来学习特定场景的检测模型。Pishchulin et al. \cite{pishchulin2011learning}利用了一个3D的形状模型来生成训练数据。然而为了场景迁移来进行合成工作也很耗费人力。
+
+
+
+\section{我们的方法}
 \label{section:Our Approach}
 
-In this section, we introduce our unsupervised deep domain adaptation approach on the task of people detection. We denote the training images of source domain as  ${\bf X}^{S} = \{x^{S}_{i}\}^{N^{S}}_{i=1}$ and that of target domain as ${\bf X}^{T} = \{x^{T}_{j}\}^{N^{T}}_{j=1}$. For each image in source domain, we have corresponding annotations denoted as ${\bf B}^{S}_{i} = \{b^{S}_{i,k}\}^{N^{S}_{i}}_{k=1}$ with $b^{S}_{i,k} = (x,y,w,h) \in R^{4}$, however, the annotations for images in target domain are auto-labelled which we denote as ${\bf \tilde{B}}^{T}_{j} = \{\tilde{b}^{T}_{j,k}\}^{N^{T}_{j}}_{k=1}$ with $\tilde{b}^{T}_{j,k} = (\tilde{x},\tilde{y},\tilde{w},\tilde{h}) \in R^{4}$. The annotations for target domain changes for every iteration during the adaptation process. Human annotated images on target domain are used only for evaluation.
+在这个部分中，我们将介绍在人物检测的任务中的无监督场景迁移算法。我们将来自原场景的训练图片标记为${\bf X}^{S} = \{x^{S}_{i}\}^{N^{S}}_{i=1}$， 把待迁移场景中的训练图片标记为${\bf X}^{T} = \{x^{T}_{j}\}^{N^{T}}_{j=1}$。对于原场景中的图片，我们将其对应的标记标记为${\bf B}^{S}_{i} = \{b^{S}_{i,k}\}^{N^{S}_{i}}_{k=1}$，其中$b^{S}_{i,k} = (x,y,w,h) \in R^{4}$。然而待迁移场景中的图片的标记是自动标记的，我们标记为${\bf \tilde{B}}^{T}_{j} = \{\tilde{b}^{T}_{j,k}\}^{N^{T}_{j}}_{k=1}$，其中 $\tilde{b}^{T}_{j,k} = (\tilde{x},\tilde{y},\tilde{w},\tilde{h}) \in R^{4}$。 在迁移的过程中，待迁移场景的标记随着每次迭代而变化。在待迁移场景中，人工标记的数据仅仅用来做迁移算法的评估用。
 
-The adaptation architecture of our approach consists of two streams -- source stream $M^{S}$ and target stream $M^{T}$, as shown in Fig x(!). Source stream takes samples from source domain as input, and target stream operates on samples from target domain. These two streams can utilize any end to end deep detection network as their model. Here we use the below mentioned network in Sec \ref{section:Detection Network} in our experiment. In initialization stage, we firstly use abundant annotated samples from source domain to train the model of source stream under a supervised loss function to regress bounding box. After its convergence, the weights of the model of source stream are used to initialize target stream. In adaptation stage, iteration algorithm is used as training method. Target model in target stream is trained and upgraded in this process while source stream stays static.
+我们的迁移算法框架分为两个框架流--愿框架流和待迁移框架流。图片x展示了这个框架。愿框架流将原场景的数据作为输入，待迁移框架流将待迁移场景的数据作为输入。这两个框架流可以利用任何的端到端的深度检测网络作为它们的模型。这里我们使用了在章节\ref{section:Detection Network}中介绍的网络作为两个框架流中的模型。在初始化阶段，我们首先利用足够的原场景的标记数据来训练原框架流中的模型，有监督的损失函数来在预测区域进行回归。在训练收敛之后，原框架流的权重用来初始化待迁移框架流中的待迁移模型。在迁移阶段，迭代算法用来作为训练的方法。待迁移框架流中的待迁移模型在迭代过程中被不断更新，同时原框架流中的原模型权重不再更新。
 
-Both supervised loss and unsupervised regularizer are designed as loss function to train the target stream for learning scene-specific detector as well as avoid overfitting. For supervised loss, the auto-annotated data can be used as training labels. As the auto-annotated samples contains data error, an unsupervised loss are required to regularize the network. We take the source model in source stream as a reference for feature vector distribution. We defined the combination of supervised loss and unsupervised loss as our loss function for adaptation:
+我们的算法同时利用了监督的损失函数和非监督的损失函数来训练学习基于特定场景的检测模型，同时避免训练中的过拟合。对于监督的损失函数，我们利用自动标记的数据作为训练数据。由于自动标记的数据存在数据错误，我么需要利用非监督的损失函数来正则化整个网络。我们将愿框架的原模型作为数据分布的参考。因此我们在迁移过程中结合的无监督和监督的损失函数可以被这样描述：
 \begin{eqnarray}
 % \nonumber to remove numbering (before each equation)
   L(\theta^{T}|{\bf X}^{S},{\bf B}^{S},{\bf X}^{T},{\bf \tilde{B}}^{T},\theta^{S}) &=& L_{S} + \alpha * L_{U} \\
   L_{S} &=&  \sum^{N^{T}}_{j=1}{\sum^{N^{T}_{J}}_{k=1}( r(\theta^{T}|x^{T}_{j},\tilde{b}^{T}_{j,k})+c(\theta^{T}|x^{T}_{j},\tilde{b}^{T}_{j,k}) )} \\
   L_{U} &=& L_{MMD}(\theta^{T}|{\bf X}^{S},{\bf X}^{T},\theta^{S}) \label{Eq:lmmd}
 \end{eqnarray}
-where $L_{S}$ is supervised loss to learn the scene-specific detector and $L_{U}$ is the unsupervised regularizer part. $r(\cdot)$ is a regression loss for bounding box location, like norm-1 loss, and $c(\cdot)$ is a classification loss for bounding box confidence, such as cross-entropy loss. And $L_{MMD}(\cdot)$ is the MMD-based loss for unsupervised regularization. Coefficient $\alpha$ balance the effect of supervised and unsupervised loss. We set $\alpha = 10$ in our experiments.
+其中$L_{S}$是有监督的损失函数来学习基于场景的检测模型，$L_{U}$是无监督的损失函数。$r(\cdot)$是为了预测区域定位的回归函数，比如norm-1损失函数， $c(\cdot)$是为了预测区域置信度的分类函数，比如cross-entroy损失函数。$L_{MMD}(\cdot)$是基于MMD的无监督正则化函数。其中常数$\alpha$用来平衡监督损失函数和无监督损失函数的影响。在我们的实验中，它对于不同的场景具有鲁棒性，我们取$\alpha = 10$作为所有实验的$\alpha$值。
+
 
 \begin{figure}
 \centering
@@ -95,9 +104,10 @@ sentence of a figure caption should generally end without a full stop}
 \label{fig:example}
 \end{figure}
 
-\subsection{Detection Network}
+
+\subsection{检测网络}
 \label{section:Detection Network}
-The generic model \footnote{Proposed by Russel et al.} used in our adaptation architecture for source and target stream is an end to end detection network without any precomputed region proposals needed. It consists of a GoogLeNet \cite{szegedy2015going} for feature extraction and a RNN-based decoder for output of bounding box and corresponding confidence, as shown in Fig x(!). Firstly, the GoogLeNet model encode the image into a feature map (15x20x1024) of which each 1024 dimension vector are data representation of its receptive field corresponding to a subregion of the image. Then the RNN-based layers with batch size 300 will decode the data representation and sequentially predict 5 possible bounding boxes by the order of its corresponding confidence. Finally, all outputs are summarized to give final detection results. When trained with abundant samples from source domain, the obtained model has a high precision on target domain, however, its recall is low. Also, different from other detection network \cite{girshick2015fast,vu2015context}, which need precomputed proposals for classification and fine regression, this generic model directly predict bounding boxes with high confidence. Thus, negative instances may contain people and non-people predictions, and cannot be employed in adaptation training.
+我们利用Russel et al.提出的模型来作为我们迁移框架流中的模型，这是一个端到端的人物检测模型，它不需要任何提前计算好的可能人物区域。这个检测网络包含了一个GoogLeNet \cite{szegedy2015going}来将一张图片编码为一个(15x20x1024)的特征图，其中每一个1024维都是对应感应区域的数据表征，每一个感应区域对应了原图中的一个子区域。然后一个基于RNN的层将批量大小为300的数据表征解码为具体的300*5个输入，包括预测区域的位置和其对应的置信度。最后所有子图上的输出总结在一起作为最好的检测结果。当我们在原场景的大量数据充分训练之下，得到的深度网络在待迁移场景有较高的准确度，然后它的召回率并不高。同时，不同于其他需要提前计算可能的预测区域并一一给出置信度的检测网络\cite{girshick2015fast,vu2015context}，这个检测网络直接输出了所有的具有高置信度的预测区域。因此，负样本中可能包含人头区域也可能包含非人头区域，这并不能作为迁移时的训练数据。
 
 \begin{figure}
 \centering
@@ -112,11 +122,13 @@ sentence of a figure caption should generally end without a full stop}
 \label{fig:example}
 \end{figure}
 
-\subsection{Iterative Algorithm}
-\label{Section:Iterative Algorithm}
-In this section we introduce the iteration algorithm as training method at adaptation stage. The auto-annotating tool takes images on target domain with high confidence as training data for next iteration. To generate the auto-annotated data for the first iteration, we utilize the generic model well-trained on source domain, which results in training set on the target domain. As mentioned in Sec \ref{section:Detection Network}, the training set on target domain auto-annotated by the generic model in our experiment have low recall and high precision. At subsequent iterations, training set on target domain are auto-annotated by upgraded model resulting from training of last iteration. Among every iteration, these auto-annotated data are used as training data to upgrade the deep network.
 
-As the training set on target domain auto-annotated for the training of first iteration have low recall rate and people and non-people regions mixed in negative instances, we ignore back propagation of bounding boxes with low confidence during training. That is, we encourage the network to have more confidence on positive instances and stay conservative toward negative instances. This policy will no doubt resulting predictions of many non-people instance and impeding the further training when many non-people instances are regarded as people instances by the target model. To compensate for lack of true negative instances, we add annotated samples from source domain into the training data, which are human annotated and can thus provide true negative samples. In our experiment, when training on additional samples from source domain, we only do back propagation of bounding boxes with low confidence. At the same time, the unsupervised loss will also regularize the network. The complete adaptation process is illustrated in Algorithm \ref{algorithm:Deep domain adaptation algorithm (to be completed)}. After a predetermined iteration limit $N^{I}$ is reached, we obtain our final detection model on the target domain.
+\subsection{迭代算法}
+\label{Section:Iterative Algorithm}
+这个章节中我们将介绍迁移过程中的迭代算法。自动检测工具将待迁移场景中置信度高的图片作为下一次迭代需要的训练数据。为了生成第一次迭代的自动标记数据，我们利用在原场景充分训练好的原模型来生成待迁移场景的训练数据。就像章节\ref{section:Detection Network}中提到的那样，由原模型自动标记得到的待迁移场景下的训练数据具有低的召回率和高的准确率。在随后的迭代中，每次迭代需要的训练数据都有上一次迭代得到的更新的待迁移模型自动标记得到。在这些迭代中，这些自动标记的图片就作为训练数据来更新待迁移模型。
+
+由于自动标记的待迁移场景的数据包含低的召回率。同时人物区域和非人物区域都混杂在负样本中，我们忽略了低置信度的区域的误差反传。也就是在训练的过程中我们鼓励网络更加大胆的预测正样本，而对于负样本保持保守的态度。这个策略无疑将导致许多非人物的区域都被预测为人物。当错误积累到一定程度，进一步的训练也无法提高召回率，反而适得其反。为了弥补真阴性数据的不足，我们将原场景中人工标记的图片数据加入到训练数据中。在我们的实验中，当训练这些来自原场景的标记图片时，我们只对那些具有低置信度的区域进行反传。同时章节\ref{Section:Unsupervised weights regularizer on Element-wise Multiply Layer}中的无监督损失函数加入了网络中进行正则化约束。完整的迁移算法在算法\ref{algorithm:Deep domain adaptation algorithm (to be completed)}中给出。在一个提前指定的迭代次数极限到达之后，我们就获得了最后的在迁移场景下学习到的检测模型。
+
 
 \begin{algorithm}
 \caption{Deep domain adaptation algorithm (to be completed)}
@@ -142,19 +154,23 @@ As the training set on target domain auto-annotated for the training of first it
 
 \subsubsection{Element-wise Multiply Layer}
 \label{section:Element-wise Multiply Layer}
-In deep neural network, the last feature vector layer are taken as an important data representation of input images. However, in this paper, we take one step further to focus on the last full connected layer which serves as an decoder to decode rich information contained in the last feature vector into final outputs. As source model are trained with abundant labelled data on source domain, the parameters of the last full connected layer are also well converged. We assume that a regularizer on the last full connected layer will achieve better results compared with the last feature vector layer. Firstly, denote the last feature vector, parameters of the last full connected layer and final outputs as ${\bf F}_{(N^{B}\times N^{D})}$, ${\bf C}_{(N^{D}\times N^{O})}$ and ${\bf P}_{(N^{B}\times N^{O})}$, respectively. The operation of full connected layer can be thus formulated as matrix multiply:
+~
+
+在深度神经网络中，最后一层的特征向量被作为输入图片的重要表征。然而，在这篇文章中我们往后一步，关注于最后一层的全连通层。这一层作为解码器将最后一层特征向量中包含的丰富信息表达为最后的输出层。由于原模型实在充分的原场景数据下训练得到的，因此其最后一层全连通层的参数也很好的收敛过。我们认为相比于在最后一层的特征向量加入正则化限制，如果在最后这一层全连通层加入了正则化的约束将会取得更好的效果。首先，我们标记最后一层特征向量、最后一层全连通层的参数和最后的输出对应为${\bf F}_{(N^{B}\times N^{D})}$ , ${\bf C}_{(N^{D}\times N^{O})}$ and ${\bf P}_{(N^{B}\times N^{O})}$。最后一层全连通层的操作可以被表达为矩阵乘法：
 \begin{eqnarray}
 % \nonumber to remove numbering (before each equation)
   {\bf P} &=& {\bf F}*{\bf C} \\
   P_{b,o} &=&  \sum_{d}{F_{b,d}*K_{d,o}}
 \end{eqnarray}
-Inspired by this form, we separate the above formula into two sub-operations -- element-wise multiply and sum, which can be formulated as:
+从中得到可以得到启发，我们将上述共识切分为两个子操作-- 元素点乘和求和，同样这两个操作可以描述为：
 \begin{eqnarray}
 % \nonumber to remove numbering (before each equation)
   M_{b,o,d} &=& F_{b,d} * C_{d,o} \\
   P_{b,o} &=& \sum_{d}{M_{b,o,d}}
 \end{eqnarray}
-where ${\bf M}_{(N^{B}\times N^{O}\times N^{D})} = [\vec{m}_{b,o}]$ is the parameter tensor of element-wise multiply operations. $\vec{m}_{b,o}$ is a vector with $N^{D}$ dimensions, which will be the basis of unsupervised regularizer. Finally, we can equivalent-transform the last full connected layer between the last feature vector layer and final outputs layer into element-wise multiply layer and sum layer. The transformed element-wise layer is thus the last layer with parameters before output layers. Fig x (!) illustrates the transform.
+其中${\bf M}_{(N^{B}\times N^{O}\times N^{D})} = [\vec{m}_{b,o}]$是元素点乘操作的参数张量。$\vec{m}_{b,o}$ 是一个具有$N^{D}$ 维的向量，这将作为无监督正则化约束的基础。最后，我们可以将最后一层特征向量和最后的输出之间的最后的全连通层转化一个元素点乘层和求和层。这个转化来的元素点乘层是最后一个在输出层之前的带有参数权重的层。图片x展示了这个转化。
+
+
 
 \begin{figure}
 \centering
@@ -166,11 +182,15 @@ at $x_s$. }
 \end{figure}
 
 \subsubsection{Unsupervised weights regularizer on Element-wise Multiply Layer}
-In works [decaf][][], the last feature vector layer are regarded as the final representation of images. (how to introduce beyond sharing weights) In domain adaptation tasks, when generic deep model are trained with abundant data from source domain, the last element-wise layer mentioned in Sec \ref{section:Element-wise Multiply Layer} also includes rich information leading to the final output. For the nodes in the output layer, inputs from element-wise layers that will contribute to its value are not randomly decided. In this paper, we assume that the distribution of $\vec{m}_{b,o}$ of the last element-wise layer on both source and target domain should be similar. In the last element-wise multiply layer, every dimension of $\vec{m}_{b,o}$ may contribute to the final output. However, as the old model on source domain are trained with abundant images, the distribution of $\vec{m}^{T}_{b,o}$ should be consistent compared with $\vec{m}^{S}_{b,o}$ of source domain when adapting deep network on target domain. We utilize MMD (maximum mean discrepancy) to encode the similarity of element-wise multiply layer of source domain and target domain:
+\label{Section:Unsupervised weights regularizer on Element-wise Multiply Layer}
+在一些工作中[decaf][][]，最后一层的特征向量被当做图片最后的表征。在场景迁移的任务中，当原模型在在大量原场景数据的训练之下，章节
+\ref{section:Element-wise Multiply Layer}中提到的元素点乘层也包含了丰富且重要的信息，直接导致了最后的输出。对于输出层的特定节点来说，它的最后输出值取决于被转化来的最后的元素点乘层，并且元素点乘层每一维对其的贡献并不是随机确定的。在这篇文章中，我们认为原场景和待迁移场景中数据在最后这层元素点乘层的分布应该是相似的。虽然在最后一层元素点乘层中，每一维可能对最后的输出产生影响，但是由于原模型是在大量的原场景的数据的训练之下得到的，那么它在元素点乘层上的分布应该具有代表性，且待迁移模型在迁移的过程中也应该保持一致。这里我们利用MMD (maximum mean discrepancy)来编码原场景数据和待迁移场景数据在元素点乘层上的分布的相似性。
 \begin{equation}\label{equation:LMMD}
   L_{MMD}(\theta^{T}|{\bf X}^{S},{\bf X}^{T},\theta^{S}) = \frac{1}{N^{O}} \sum^{N^{O}}_{o=1}{\parallel \frac{1}{N^{B}}\sum^{N^{B}}_{b=1}{\vec{m}^{T}_{b,o}} - \frac{1}{N^{B}}\sum^{N^{B}}_{b=1}{\vec{m}^{S}_{b,o}} {\parallel}^{2}  }
 \end{equation}
-which can also interpreted as the Euclidean distance between the center of $\vec{m}^{T}_{b,o}$ and $\vec{m}^{S}_{b,o}$ across all output nodes. It's unpractical to get the distribution of the whole training set, while too few images cannot obtain a stable center for regularization. In our experiments, the $L_{MMD}(\cdot)$ loss is calculated for every batch. An example comparison of centers of $\vec{m}^{S}_{b_{i},o}$ and $\vec{m}^{S}_{b_{j},o}$ are shown in Fig x(1).
+这个公示也可以解释为对于所有输出节点的$\vec{m}^{T}_{b,o}$ 和 $\vec{m}^{S}_{b,o}$的中心之间的欧式距离的平均值。在实验的过程中，将所有的数据集都拿进来计算数据分布是不现实的，然后数据太少得到的数据分布不稳定，难以做正则化约束，因此在我们的实验中，$L_{MMD}(\cdot)$损失函数是由每一次的批量训练中得到的。$\vec{m}^{S}_{b_{i},o}$和$\vec{m}^{S}_{b_{j},o}$的比较可以在图x中看到。从图中可以看到原场景不同的数据在最后一层元素点乘层的分布是很接近的。
+
+
 
 \begin{figure}
 \centering
@@ -181,10 +201,11 @@ at $x_s$. }
 \label{fig:example}
 \end{figure}
 
-\section{Experiment Results}
+\section{实验结果}
 \label{section:Experiment Results}
 
-In this section, we introduce experiment results on both surveillance applications and standard domain adaptation dataset. Our motivation for unsupervised domain adaptation method is for easier deployment of  We firstly evaluate our approach on video surveillance. Then we employ our approach to standard domain adaptation benchmarks on both supervised and unsupervised settings to demonstrate the effectiveness of our method.
+在这个章节中，我们将介绍我们在监控场景中的表现和在标准场景迁移基准数据集上的表现。由于我们最早做场景迁移的动机在于更方便的部署深度检测网络到监控场景中，因此我们首先展示我们在密集场景中人物检测的表现。然后我们将我们的迁移算法应用到标准场景迁移基准数据集上来验证我们的算法的适用性。
+
 
 \begin{figure}
 \centering
@@ -199,19 +220,28 @@ sentence of a figure caption should generally end without a full stop}
 \label{fig:example}
 \end{figure}
 
-\subsection{Domain Adaptation on Crowd Dataset}
+\subsection{监控场景中的场景迁移}
 
-\subsubsection{Dataset and evaluation metrics}
-To show the effectiveness of our domain adaptation approach on people detection, we collected a dataset consisting of 3 target scenes for target domain. These three scenes contain 1308, 1213 and 331 un-annotated images with 0000, 0000, 0000 people instances respectively. For each scene, 100 images are annotated for evaluation. Instead of labelling the whole body of a person, we labels the head of a person as bounding box during training. The motivation for labelling only people heads comes from detection of indoor people or in crowded scenes, where the body of a person may be invisible. The dataset for source domain are Brainwash Dataset released on http://d2.mpi-inf.mpg.de/datasets. Brainwash Dataset consists of over 11917 images from 3 crowded scenes. Examples of images from source and target domain are shown in Fig x(!).
+\subsubsection{数据集和评估标准}
+~
 
-Our evaluation metrics for detection uses the protocol defined in PASCAL VOC \cite{everingham2015pascal}. To judge a predicted bounding box whether correctly matches a ground truth bounding box, their intersection over their union must exceed 50\%. And Multiple detections of the same ground truth bounding box are regarded as one correct prediction. We plot the precision-recall curve in Fig x(!). Also, the F1 score $F1 = 2*precision*recall/(precision+recall)$ during the adaptation process are also shown in Fig x(!).
+为了展示我们的场景迁移算法在人物检测任务中的效果，我们收集了一个包含了3个待迁移场景的数据集。这三个待迁移场景分别包含了1308，1213和331张没有标记的图片。对于每个场景，我们额外标记了100张图片作为最后的测试数据。我们在人工标记的工程中并不是将整个人的身体都标记出来，而是将其头部标记出来。这样做的原因是在室内的人物检测或者密集场景中的人物检测，由于遮挡等原因，一个人的身体部分很可能是看不到的，选择人物头部作为人物的代表可以解决这个问题。原场景的数据集是来自Brainwash数据集（http://d2.mpi-inf.mpg.de/datasets）。这个数据集包含了超过11917张来自三个场景的带标记的图片。原场景和待迁移场景的示意图如图x所见。
+
+我们对于检测结果的评估方法来自于PASCAL VOC \cite{everingham2015pascal}中所定义的标准。为了判断一个预测区域是不是能够匹配一个真实的人物区域，他们之间的交集面积必须超过他们的合集面积的50\%。如果多个检测结果预测了同一个人物，那么也只能当作一个正确率的预测。我们在图x中画出了准确率-召回率曲线图，同时，在迁移算法的迭代过程中的F1值$F1 = 2*precision*recall/(precision+recall)$也展示在图x中。
 
 
 
-\subsubsection{Experimental settings}
-We use deep learning framework Caffe \cite{jia2014caffe} as the adaptation architecture of our approach. During the adaptation, we set learning rate as 0.01 and momentum as 0.5. At initialization stage, GoogLeNet weights are firstly used to initialize source model of source stream, while parameters in RNN layers are randomly initialized from a uniform distribution. For each iteration, 100 auto-annotated images from target domain and 1000 annotated images from source domain are alternatively used for training. The outputs of our detection network contains bounding box locations and corresponding confidence, thus there are two full connected layers between the last feature vector layer and the final outputs. Experiments of unsupervised regularizer on element-wise layer for bounding box regression have no additional improvement on the performance when regularizer on element-wise layer for box confidence classification are added already. Our approach on domain adaptation are executed separately in the 3 target scenes.
+
+\subsubsection{实验设定}
+~
+
+我们使用了深度学习框架Caffe \cite{jia2014caffe}作为我们的迁移学习平台。在场景迁移的过程中，我们将网络的学习率设为0.01，动量设为0.5 。在初始化阶段，GoogLeNet的权重首先用来初始化愿框架流的原模型，同时RNN层的参数根据均一分布随机初始化。在每一次迭代中，100张自动标记的待迁移场景的图片和1000张原场景的标记图片交互的用来训练待迁移场景的网络。检测网络的输出包括预测区域的坐标及其对应的置信度，因此在最后一层特征向量和最后的输出之间有两个全连通层。经过我们的实验，发现当无监督的MMD正则化函数已经加到输出预测区域置信度的元素点乘层时，再将无监督的MMD正则化函数加到输出预测区域坐标的元素点乘层并不能更好的表现。我们的迁移算法在3个待迁移场景分别做了实验。
+
+
 
 \subsubsection{Comparison with baseline methods}
+~
+
 To demonstrate the effectiveness of our approach, 4 methods are compared with method 4 as our final approach:
 \begin{enumerate}
 \item Only auto-labeled samples on target domain are used for training, and without any unsupervised regularizer.
@@ -310,4 +340,6 @@ $x_i$ and $x_j$ ({\it left and right}) }
 
 \bibliographystyle{splncs}
 \bibliography{egbib}
+
+\end{CJK*}
 \end{document}
