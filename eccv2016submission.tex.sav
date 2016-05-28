@@ -72,9 +72,61 @@
 
 同时，在学习基于特殊场景学习的检测算法也有一些工作。Wang et al.\cite{wang2014scene,zeng2014deep}利用了上下文的信息来计算检测物体的置信度，同时他也提出了学习待迁移场景数据分布以及为特定场景的视觉模式设计了聚类层的算法。这些工作依赖于重新给自动标记的数据以计算权重并加入最后的损失函数以及需要额外的上下文设计以获得可靠的结果。同时，Hattori el al. \cite{hattori2015learning}通过生成空间变化的行人模型来学习特定场景的检测模型。Pishchulin et al. \cite{pishchulin2011learning}利用了一个3D的形状模型来生成训练数据。然而为了场景迁移来进行合成工作也很耗费人力。
 
+\section{检测网络的构建}
+~
+
+监控场景在现代生活的应用已经越来越广泛，而对监控场景中的人物进行检测也有着重要的应用价值。监控视频中的人物头部检测大致可以分为两类，一类借助于动态的视频，先提取出固定的背景图片，然后减去背景进行检测；另一类直接从静态的一帧帧图片中，检测出人物头部的区域。然而检测速度慢，误检率高，部署成本高仍然是目前面临的难题。卷积神经网络在计算机视觉领域的巨大成功使得这个任务变得更加可行。我们从静态的图片入手，运用卷积神经网络（Convolutional Neural Network）进行图片检测。卷积神经网络作为编码器将关于图片的特征并表达为特征图时，就需要再加一个解码器将特征图表达为最后的输出。关于将特征图解码有两个可行的方向，一个是直接利用前馈神经网络将特征图转化为特征向量并最后表达为输出，另一个就是利用递归神经网络将特征图的信息解码为一系列的输出。在物体检测的任务中，卷积神经网络+前馈神经网络的方法被广泛采用，然后我们的任务为监控场景下的人头检测，这有别于普通的物体检测。首先监控场景下存在这密集的场景，在某一个时刻可能存在着多达几十个人物出现在场景中；另一个方面，监控场景下的人物相比于普通相机拍到的人物都要更小。这种从物体数量到物体尺寸都跟经典的物体检测的任务有所出处，因此卷积神经网络+前馈神经网络的方法会遇到一些问题。卷积神经网络+递归神经网络的方法可以解决存在多个物体需要检测的情况。
 
 
-\section{我们的方法}
+\subsection{卷积神经网络+前馈神经网络的方法}
+~
+
+
+
+\subsection{卷积神经网络+递归神经网络的方法}
+\subsubsection{递归神经网络}
+~
+
+在前馈神经网络中，没有办法有效果的对序列的信息进行编码和预测，导致了其在语音处理等序列预测领域有很大的限制。而递归神经网络的出现很好的解决了这个问题。若图所示便是RNN的示意图。在RNN中，输入为可以为一个序列，输出也可以为一个序列。RNN在文字预测方面有着很好的效果，举一个单词预测的例子，当我们输入一个单词的前几个字母，那么如果给出最可能的下一次字母呢？假设我们的词汇量中只有4个可能的字母“helo”,然后我们想要训练一个递归神经网络能够预测“hello”。 这个训练的过程其实就是4个分开的步骤：首先当给定输入为“h”时，那么字母“e”输出的概率应该是最高的，其次给定“he”，那么字母“l”输出的概率应该是最高的，然后给定“hel”，那么字母“l”输出的概率应该是最高的，最后给定“hell”，那么字母“o”输出的概率应该是最高的。需要注意的是，当我们第一次输入“l”时，给出的预测是“l”，当我们第二次输入“l”时，这个时候给出的输出为“o”。由此可以看出递归神经网络并不是只依赖于当前的输入，而是必须一直保留着前文的信息才能够做到这个预测，而FNN是没有办法做到的。在检测阶段，我们将一个字母输入到RNN，然后得到一个关于输出的概率分布。然后我们根据概率从这个分布中采样得到一个可能的输出字母并反馈作为接下来的输入。重复这个过程来得到一系列的字母直到终止。图x给出了RNN的示意图。
+
+
+RNN的前传跟普通的FNN差不多，除了当信息到达隐含层时，需要同时把当前的输入和前一个时间点的隐含层的输出一起作为输入。为了保持结构上的一致，RNN的第一个时间点可以生成一个无效的前一个时间点的隐含层作为输入。
+
+RNN的问题存在于于长序列进行预测。如果我们只需要根据最近的信息来完成现在的预测，比如上文提到的预测字母的例子，当我们尝试预测“hello worl”的“d”字母时，我们并不需要久之前的信息，而只需要“worl”这几个字母即可，那么我们知道接下来很可能是“d”字母。在这个例子中当前预测所需要的上文信息离当前很近，因此并不存在太大的问题，RNN也可以完成这个任务。然而有些情况下我们需要更多的上文信息，比如我们想要根据“the first program we learned is to print hello w”来预测这边应该是输出“world”。从前文“hello”的信息来看，有可能是接一个含“w”的名词，当我们追溯到更远的“the first program”那么我们知道这很可能是经典的“hello world”，但是对于RNN来说，“the fist program”这个信息来影响当前的预测是比较难得。如果考虑到需要依据的信息和当前的预测更远时，那么RNN几乎无法完成这个任务。有不同的方法尝试着解决这个问题，包括改变误差反传的机制，或者将信息进一步压缩。在这些方法中下过最好的就是下一节讲到的LSTM单元。
+
+
+
+\subsubsection{LSTM}
+~
+
+在上一个章节中，我们提到了使用RNN所带来的对于序列预测的帮忙，能够将前文的信息也编码到隐含层中，以作为下一个预测的依据。然后标准的RNN框架也面临了极大的问题。这个问题来源于神经网络前传和误差反传的机制，当RNN的所要预测的序列太长时，前文的信息对于后面的预测的影响将是指数级的上升或者下降。解决这个问题最有效的办法就是利用LSTM来取代传统的神经元。图x给出了LSTM的示意图。
+
+一个标准的LSTM网络跟标准的RNN是一样的，除了其中隐含层的神经元都被替换为LSTM单元。一个基本的LSTM包含了一小个集合的递归子网络，称为记忆单元。对于每一个记忆单元，都包含了几个自连通的记忆细胞和三个门，即输入输出和忘记门。这三门也分别对应了对记忆读、写和重置的功能。这三个门是LSTM的核心所在。它们可以在时间推移的过程中，储存或者读取这些记忆，甚至抹除无用的记忆，这样就减轻了随着时间的推移信息难以传递的问题。例如我们通过控制某个LSTM输入门关闭，这样该LSTM中的信息就不会受到新输入的影响，在将来的某一个时刻，保存下来的信息便有可能通过开启输出门使得信息被读取并发挥作用。当忘记门开启式，LSTM便可以忘掉无用的信息，在将来的某一个时刻，通过打开输入门来保存新的记忆信息。在这样一个过程中，LSTM很好的模拟了人脑记忆的思维模式。如果用某一个时刻的隐含层比作人脑的话，那么隐含层中的LSTM单元就对应了人脑的记忆细胞，LSTM单元某一个时刻的值也对应了人脑在某一个时刻的记忆。对于人脑来说，有时候发生了可能影响到未来的事情，比如你在地铁上想到了一个新算法而手头有没有电脑可以实验，那么你就利用自己的记忆在这个新算法记忆下来并在将来有电脑可以使用的情况下触发这个记忆并做相关实验，在实验完成之后发现并没有起效果，于是你就忘了这个算法。对应于LSTM网络，那么当新算法作为输入输入到网络中，LSTM单元及时开启输入门并保存算法信息，当后来的某一个时刻有电脑可以使用时，触发了输出门的开启，于是算法被输出到当前时刻，失败的实验结果也反馈给了LSTM网络，于是它开启了忘记门将这个算法忘记。因此，LSTM很好的模拟了人脑的记忆读取写入和忘记的功能，因此对于长序列的信息也可以做到很好的保存和处理。
+
+\subsection{基于卷积神经网络+递归神经网络的方法的检测网络}
+~
+
+在这个章节中我们将介绍我们使用的检测网络的结构。就像上文提到的那样，监控场景下存在这密集的场景，在某一个时刻可能存在着多达几十个人物出现在场景中以及监控场景下的人物相比于普通相机拍到的人物都要更小。这种从物体数量到物体尺寸都跟经典的物体检测的任务有所出处，因此卷积神经网络+前馈神经网络的方法会遇到一些问题。卷积神经网络+递归神经网络的方法可以解决存在多个物体需要检测的情况。在这边我们使用了一个比较新颖的检测网络。这是一个端到端预测的算法。所谓的端到端就是我们将一张图片作为输入，那么网络输出将所有可能的物体区域记忆其置信度。这种端到端直接预测的算法适用于我们的监控场景，相比于其他先提前计算所有可能的区域，然后将这些区域一一通过神经网络来判断做分类要更加的有效果。因为我们场景中的人头存在多而小的问题。同时我们利用了RNN进行序列预测的功能，可能很大程度的避免对同一个物体的重复预测。
+
+\subsubsection{检测模型的构建}
+~
+我们使用的检测网络首先将一张图片编码为15x20的网格，每个网格内都包含了1024维的GoogLeNet特征向量。同时每个网格对应了输出图片的一个子区域，对于每个网格，子区域中间的64*64区域是鼓励网络取预测的，在这中心区域之外，并不鼓励网络去预测。而64*64的大小已经足够用于捕捉监控场景中人物头部的大小。更大的区域并不能在我们的这个任务中取得更好的效果。对于每一个网格，1024维的向量被分别输入到不同的RNN网络中，之间并不互相影响，但是在最后的结果中将这300个LSTM网络的结果合并在一起。
+
+这里利用到的RNN网络中，每个隐含层包含250个LSTM单元，不带有bias项。在每一个RNN的时间点上，我们将1024维的GoogLeNet特征向量和上一层的隐含层输出拼接在一起作为当前的输入输入给当前的隐含层。
+
+
+\section{数据集与有监督学习的实验结果}
+
+\subsection{数据集}
+~
+
+
+\subsection{有监督学习的实验结果}
+~
+
+
+
+\section{我们的迁移方法}
 \label{section:Our Approach}
 
 在这个部分中，我们将介绍在人物检测的任务中的无监督场景迁移算法。我们将来自原场景的训练图片标记为${\bf X}^{S} = \{x^{S}_{i}\}^{N^{S}}_{i=1}$， 把待迁移场景中的训练图片标记为${\bf X}^{T} = \{x^{T}_{j}\}^{N^{T}}_{j=1}$。对于原场景中的图片，我们将其对应的标记标记为${\bf B}^{S}_{i} = \{b^{S}_{i,k}\}^{N^{S}_{i}}_{k=1}$，其中$b^{S}_{i,k} = (x,y,w,h) \in R^{4}$。然而待迁移场景中的图片的标记是自动标记的，我们标记为${\bf \tilde{B}}^{T}_{j} = \{\tilde{b}^{T}_{j,k}\}^{N^{T}_{j}}_{k=1}$，其中 $\tilde{b}^{T}_{j,k} = (\tilde{x},\tilde{y},\tilde{w},\tilde{h}) \in R^{4}$。 在迁移的过程中，待迁移场景的标记随着每次迭代而变化。在待迁移场景中，人工标记的数据仅仅用来做迁移算法的评估用。
@@ -233,20 +285,23 @@ sentence of a figure caption should generally end without a full stop}
 
 
 \subsubsection{实验设定}
-我们使用了深度学习框架Caffe \cite{jia2014caffe}作为我们的迁移学习平台。在场景迁移的过程中，我们将网络的学习率设为0.01，动量设为0.5 。在初始化阶段，GoogLeNet的权重首先用来初始化愿框架流的原模型，同时RNN层的参数根据
+~
+
+我们使用了深度学习框架Caffe \cite{jia2014caffe}作为我们的迁移学习平台。在场景迁移的过程中，我们将网络的学习率设为0.01，动量设为0.5 。在初始化阶段，GoogLeNet的权重首先用来初始化愿框架流的原模型，同时RNN层的参数根据均一分布随机初始化。在每一次迭代中，100张自动标记的待迁移场景的图片和1000张原场景的标记图片交互的用来训练待迁移场景的网络。检测网络的输出包括预测区域的坐标及其对应的置信度，因此在最后一层特征向量和最后的输出之间有两个全连通层。经过我们的实验，发现当无监督的MMD正则化函数已经加到输出预测区域置信度的元素点乘层时，再将无监督的MMD正则化函数加到输出预测区域坐标的元素点乘层并不能更好的表现。我们的迁移算法在3个待迁移场景分别做了实验。
 
 
-We use deep learning framework Caffe \cite{jia2014caffe} as the adaptation architecture of our approach. During the adaptation, we set learning rate as 0.01 and momentum as 0.5. At initialization stage, GoogLeNet weights are firstly used to initialize source model of source stream, while parameters in RNN layers are randomly initialized from a uniform distribution. For each iteration, 100 auto-annotated images from target domain and 1000 annotated images from source domain are alternatively used for training. The outputs of our detection network contains bounding box locations and corresponding confidence, thus there are two full connected layers between the last feature vector layer and the final outputs. Experiments of unsupervised regularizer on element-wise layer for bounding box regression have no additional improvement on the performance when regularizer on element-wise layer for box confidence classification are added already. Our approach on domain adaptation are executed separately in the 3 target scenes.
 
 \subsubsection{Comparison with baseline methods}
-To demonstrate the effectiveness of our approach, 4 methods are compared with method 4 as our final approach:
+~
+
+为了展示算法的有效性，我们比较了4个不同的方法，其中方法4是我们最后的迁移算法：
 \begin{enumerate}
-\item Only auto-labeled samples on target domain are used for training, and without any unsupervised regularizer.
-\item Only auto-labeled samples on target domain are used for training, with MMD regularizer on last element-wise multiply layer as unsupervised weights regularizer.
-\item Both auto-labeled images from target domain and labeled images from source domain are alternately sampled for training, with MMD regularizer on last feature vector as unsupervised weights regularizer.
-\item Both auto-labeled images from target domain and labeled images from source domain are alternately sampled for training, with MMD regularizer on last element-wise multiply layer as unsupervised weights regularizer.
+\item 只有待迁移场景自动标记的数据做训练，不加任何的无监督正则化函数。
+\item 只有待迁移场景自动标记的数据做训练，无监督的MMD正则化函数加到最后一层全连通层转化的元素点乘层。
+\item 待迁移场景自动标记的数据和来自原场景的标记数据做训练，无监督的MMD正则化函数加到最后一层特征向量层。
+\item 待迁移场景自动标记的数据和来自原场景的标记数据做训练，无监督的MMD正则化函数加到最后一层全连通层转化的元素点乘层。
 \end{enumerate}
-Fig x(!) plots the precision-recall curve of the above comparison methods in target scene 1). Also, the F1 score changes of every iteration during adaptation process are also depicted in Fig x(!). Table x(!) gives concrete precision and recall value of the 4 comparison methods on three target scenes when the F1 scores are at their highest. Examples of adaptation results are shown in Fig x(!).
+图x画出了上诉几个比较方法的在待迁移场景1中的准确率-召回率曲线。同时，在迁移过程中每一次迭代的F1值的变化也在图x中显示出来。表格x给出了4个比较方法在三个迁移场景下，当F1的值达到最大时相应的准确率和召回率。迁移算法的结果示意图如图x所示。
 
 \begin{table}
 \centering
@@ -267,12 +322,14 @@ Fig x(!) plots the precision-recall curve of the above comparison methods in tar
 \end{table}
 
 \subsubsection{Performance evaluation}
-From the Table x(!) and Fig x(1), we have the following observations:
+~
+
+从表格x和图x中，我们有以下结论：
 \begin{itemize}
-  \item The recall values of method 1,2,3,4, which all utilized iteration algorithm to upgrade the target model, are larger than that of method 0, which are source model trained on source domain. This implies the effectiveness of our iteration algorithm in auto-annotation and iterative training.
-  \item Compared with method 1, method 2 has higher F1 score. Their difference on whether a MMD regularizer are added into loss function demonstrates that our unsupervised regularizer can suppress data error and thus boost the final recall.
-  \item Method 4 has both higher precision and higher recall than method 2, which demonstrates the effectiveness of additional samples from source domain during adaptation process.
-  \item Compared with method 3, the recall of method 4 are further boosted. This results from the transformed element-wise layer which provided better regularization effect on the target model.
+  \item 使用了迭代算法来更新待迁移场景中的模型的方法1、2、3、4的召回率数值比直接使用在原场景训练的原模型的方法0更高。这表现了我们的迭代算法在其自动标记和迭代式训练的有效性。
+  \item 对比于方法1，方法2有着更高的F1值。他们区别在于是否在损失函数里面添加了无监督的正则化函数，证明了我们的算法可以抑制数据错误同时提高最终的召回率。
+  \item 方法4对比于方法2有着更高的F1值，这表明了增加的来自原场景的标记数据有助于减少在迁移过程中针对待迁移场景负样本不反传的错误。
+  \item 对比于方法3，方法4的召回率更高了，这表明了转化来的元素点乘层上的无监督正则化函数取得了比特征向量层更好的效果。
 \end{itemize}
 
 
@@ -280,7 +337,9 @@ From the Table x(!) and Fig x(1), we have the following observations:
 \subsection{Domain Adaptation on Standard Classification Benchmark}
 
 \subsubsection{Office dataset}
-The Office dataset \cite{saenko2010adapting} comprises 31 categories of objects from 3 domains (Amazon, DSLR, Webcam). Example images are depicted in Fig. x(!). As Amazon domain contains 2817 labelled images, which is the largest, we take it as source domain and Webcam domain as target domain. We follow the standard protocol for both supervised and unsupervised settings. Specifically, for supervised domain adaptation, we use 20 randomly sampled images with labels for each category as training data for Amazon domain. When evaluate on unsupervised domain adaptation, 3 labelled images from target domain are additional selected for each class. For both settings, the rest of images on target domain are used for evaluation.
+~
+
+Office数据集\cite{saenko2010adapting}包含了来自三个场景(Amazon, DSLR, Webcam)的31个分类。图x给出了样例图片。由于Amazon场景有着最多的2817张标记图片，我们把它作为原场景，将Webcam场景作为待迁移场景。训练数据的使用遵从了标准的有监督和无监督的设定。具体来说，对于无监督学习，我们在原场景Amazon每个类别随机采样了20 张图片作为训练数据，对于有监督学习，我们额外在待迁移场景中每类选取了3个标记图片作为训练数据。在两种实验设定中，剩下的图片都用来作为评估以及用于无监督的MMD正则化计算。
 
 \begin{figure}
 \centering
@@ -291,11 +350,17 @@ $x_i$ and $x_j$ ({\it left and right}) }
 \end{figure}
 
 \subsubsection{Experimental settings and network design}
-On supervised setting, we reused the architecture in people detection. We utilize AlexNet \cite{krizhevsky2012imagenet} as the generic model of both streams. Firstly, we train the source model on source stream with provided training data from Amazon domain. Then iteration algorithm mentioned in Sec \ref{Section:Iterative Algorithm} are utilized for adaptation. The auto-labelling tool takes images on target domain with confidence exceeding 0.9 as training data for next iteration. The difference is besides auto-labelled images on target domain, 3 human labelled images for each class are also included as training data for target model. For each iteration, 100 images are randomly sampled from training data. The unsupervised MMD regularizer added on the element-wise layer transformed from the last full connect layer of target model set the coefficient value $\alpha$ as 10 on Eq \ref{Eq:lmmd}, the same as that in people detection task.
+~
 
-We use the same experimental setting for our unsupervised adaptation, except that at adaptation stage, no human labelled images can be added into the training set.
+在有监督的实验设定中，我们服用了在人物检测中的框架流。我们利用AlexNet \cite{krizhevsky2012imagenet}作为两个框架流的基本模型。首先，我们利用Amazon场景提供的训练数据训练愿框架流的原模型。然后在章节\ref{Section:Iterative Algorithm}中的迭代算法作为场景迁移的基本训练方法。自动标记工具将待迁移场景中置信度高于0.9的作为下一次迭代的训练数据。在每一次迭代过程中，随机从训练数据中挑选100张来更新模型。无监督的MMD正则化函数加到最后一层全连通层转化的元素点乘层，损失函数\ref{Eq:lmmd}中常数$\alpha$ 设为10，这同人物检测中利用的常数设定相同。
+
+对于无监督情况，我们使用了于有监督相同的实验设定和网络模型，除了在迁移的过程中，待迁移场景没有提供任何的可以添加到训练数据的人工标记数据。
+
 \subsubsection{Performance evaluation}
-In Table x(!), we compare our approach with other six recently published works in both supervised and unsupervised settings. The outstanding performance on both settings confirms the effectiveness of our iteration algorithm and MMD regularizer on the element-wise layer transformed from the last full connect layer.
+~
+
+在表格x中，我们跟6个最近发布的在有监督和无监督设定下的工作的结果。我们的方法在两种设定下都超过了其他方法的结果。这更加证实了我们的迭代算法以及无监督MMD正则化函数加到最后一层全连通层转化的元素点乘层在不同运用下的效果。
+
 
 
 \begin{table}

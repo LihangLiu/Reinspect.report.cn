@@ -1,69 +1,98 @@
 \relax 
-\citation{saenko2010adapting,kulis2011you,gopalan2011domain,huang2006correcting,gretton2009covariate}
-\citation{wang2014scene,zeng2014deep,hattori2015learning}
 \@writefile{toc}{\contentsline {title}{Unsupervised Deep Domain Adaptation on People Detection}{1}}
 \@writefile{toc}{\authcount {1}}
 \@writefile{toc}{\contentsline {author}{Anonymous ECCV submission}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
+\citation{saenko2010adapting,kulis2011you,gopalan2011domain,huang2006correcting,gretton2009covariate}
+\citation{wang2014scene,zeng2014deep,hattori2015learning}
+\citation{leibe2005pedestrian,barinova2012detection}
+\citation{sermanet2013overfeat,girshick2014rich,zhang2015filtered}
 \citation{saenko2010adapting,kulis2011you}
 \citation{gopalan2011domain}
 \citation{mesnil2012unsupervised}
 \citation{huang2006correcting,gretton2009covariate,gong2013connecting}
 \citation{ghifary2014domain}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Relate Work}{2}}
-\newlabel{section:Relate Work}{{2}{2}}
 \citation{wang2014scene,zeng2014deep}
 \citation{hattori2015learning}
 \citation{pishchulin2011learning}
-\@writefile{toc}{\contentsline {section}{\numberline {3}我们的方法}{3}}
-\newlabel{section:Our Approach}{{3}{3}}
-\newlabel{Eq:lmmd}{{3}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Relate Work}{3}}
+\newlabel{section:Relate Work}{{2}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}检测网络的构建}{3}}
+\citation{girshick2015fast}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}卷积神经网络+前馈神经网络的方法}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{选择性搜索}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{算法框架}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Fast R-CNN框架图。一张输入图片和多个可能的区域被输入到网络中，每一个可能的区域都通过pooling层得到一个固定大小的特征图，然后将特征图连接到全连通层来输出物体的类别和细致化的区域坐标}}{5}}
+\newlabel{fig:example}{{1}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{存在的问题}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Fast R-CNN的实验结果图。从图中可以看出算法的召回率和准确率都不高。}}{6}}
+\newlabel{fig:example}{{2}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}卷积神经网络+递归神经网络的方法}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{递归神经网络}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 递归神经网络}}{7}}
+\newlabel{fig:example}{{3}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{LSTM}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces lstm}}{8}}
+\newlabel{fig:example}{{4}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}基于卷积神经网络+递归神经网络的方法的检测网络}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{检测模型的构建}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{损失函数的设计}{9}}
+\newlabel{lossreinspect}{{1}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}数据集与有监督学习的实验结果}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}数据集}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}有监督学习的实验结果}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}我们的迁移方法}{12}}
+\newlabel{section:Our Approach}{{5}{12}}
+\newlabel{Eq:lmmd}{{4}{12}}
 \citation{szegedy2015going}
 \citation{girshick2015fast,vu2015context}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) lead to the same summed estimate at $x_s$. This shows a figure consisting of different types of lines. Elements of the figure described in the caption should be set in italics, in parentheses, as shown in this sample caption. The last sentence of a figure caption should generally end without a full stop}}{4}}
-\newlabel{fig:example}{{1}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}检测网络}{4}}
-\newlabel{section:Detection Network}{{3.1}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}迭代算法}{4}}
-\newlabel{Section:Iterative Algorithm}{{3.2}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) lead to the same summed estimate at $x_s$. This shows a figure consisting of different types of lines. Elements of the figure described in the caption should be set in italics, in parentheses, as shown in this sample caption. The last sentence of a figure caption should generally end without a full stop}}{5}}
-\newlabel{fig:example}{{2}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Unsupervised weights regularizer on Element-wise Multiply Layer}{5}}
-\newlabel{section:Element-wise Multiply Layer}{{3.3}{5}}
-\@writefile{toc}{\contentsline {subsubsection}{Element-wise Multiply Layer}{5}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Deep domain adaptation algorithm (to be completed)}}{6}}
-\newlabel{algorithm:Deep domain adaptation algorithm (to be completed)}{{1}{6}}
-\newlabel{Section:Unsupervised weights regularizer on Element-wise Multiply Layer}{{3.3}{6}}
-\@writefile{toc}{\contentsline {subsubsection}{Unsupervised weights regularizer on Element-wise Multiply Layer}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) lead to the same summed estimate at $x_s$. }}{7}}
-\newlabel{fig:example}{{3}{7}}
-\newlabel{equation:LMMD}{{8}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) lead to the same summed estimate at $x_s$. }}{7}}
-\newlabel{fig:example}{{4}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) lead to the same summed estimate at $x_s$. This shows a figure consisting of different types of lines. Elements of the figure described in the caption should be set in italics, in parentheses, as shown in this sample caption. The last sentence of a figure caption should generally end without a full stop}}{13}}
+\newlabel{fig:example}{{5}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}检测网络}{13}}
+\newlabel{section:Detection Network}{{5.1}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) }}{14}}
+\newlabel{fig:example}{{6}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}迭代算法}{14}}
+\newlabel{Section:Iterative Algorithm}{{5.2}{14}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Deep domain adaptation algorithm (to be completed)}}{15}}
+\newlabel{algorithm:Deep domain adaptation algorithm (to be completed)}{{1}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Unsupervised weights regularizer on Element-wise Multiply Layer}{16}}
+\newlabel{section:Element-wise Multiply Layer}{{5.3}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{Element-wise Multiply Layer}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) lead to the same summed estimate at $x_s$. }}{16}}
+\newlabel{fig:example}{{7}{16}}
+\newlabel{Section:Unsupervised weights regularizer on Element-wise Multiply Layer}{{5.3}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{Unsupervised weights regularizer on Element-wise Multiply Layer}{17}}
+\newlabel{equation:LMMD}{{9}{17}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}实验结果}{17}}
+\newlabel{section:Experiment Results}{{6}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) lead to the same summed estimate at $x_s$. }}{18}}
+\newlabel{fig:example}{{8}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) }}{18}}
+\newlabel{fig:example}{{9}{18}}
 \citation{everingham2015pascal}
-\@writefile{toc}{\contentsline {section}{\numberline {4}实验结果}{8}}
-\newlabel{section:Experiment Results}{{4}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) lead to the same summed estimate at $x_s$. This shows a figure consisting of different types of lines. Elements of the figure described in the caption should be set in italics, in parentheses, as shown in this sample caption. The last sentence of a figure caption should generally end without a full stop}}{8}}
-\newlabel{fig:example}{{5}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}监控场景中的场景迁移}{8}}
-\@writefile{toc}{\contentsline {subsubsection}{数据集和评估标准}{8}}
 \citation{jia2014caffe}
-\@writefile{toc}{\contentsline {subsubsection}{实验设定}{9}}
-\@writefile{toc}{\contentsline {subsubsection}{Comparison with baseline methods}{9}}
-\@writefile{toc}{\contentsline {subsubsection}{Performance evaluation}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}监控场景中的场景迁移}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{数据集和评估标准}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{实验设定}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{对比方法}{19}}
 \citation{saenko2010adapting}
+\@writefile{toc}{\contentsline {subsubsection}{实验结果}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Domain Adaptation on Standard Classification Benchmark}{20}}
+\@writefile{toc}{\contentsline {subsubsection}{Office dataset}{20}}
 \citation{krizhevsky2012imagenet}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Domain Adaptation on Standard Classification Benchmark}{10}}
-\@writefile{toc}{\contentsline {subsubsection}{Office dataset}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) }}{10}}
-\newlabel{fig:example}{{6}{10}}
-\@writefile{toc}{\contentsline {subsubsection}{Experimental settings and network design}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) }}{21}}
+\newlabel{fig:example}{{10}{21}}
+\@writefile{toc}{\contentsline {subsubsection}{Experimental settings and network design}{21}}
 \citation{gong2012geodesic}
 \citation{fernando2013unsupervised}
 \citation{tommasi2013frustratingly}
 \citation{chopra2013dlid}
 \citation{donahue2013decaf}
 \citation{ghifary2014domain}
+\@writefile{toc}{\contentsline {subsubsection}{Performance evaluation}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{22}}
+\newlabel{section:Conclusions}{{7}{22}}
 \bibstyle{splncs}
 \bibdata{egbib}
 \bibcite{saenko2010adapting}{1}
@@ -74,23 +103,25 @@
 \bibcite{wang2014scene}{6}
 \bibcite{zeng2014deep}{7}
 \bibcite{hattori2015learning}{8}
-\bibcite{mesnil2012unsupervised}{9}
-\@writefile{toc}{\contentsline {subsubsection}{Performance evaluation}{11}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{11}}
-\newlabel{section:Conclusions}{{5}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) }}{12}}
-\newlabel{fig:example}{{7}{12}}
-\bibcite{gong2013connecting}{10}
-\bibcite{ghifary2014domain}{11}
-\bibcite{pishchulin2011learning}{12}
-\bibcite{szegedy2015going}{13}
-\bibcite{girshick2015fast}{14}
-\bibcite{vu2015context}{15}
-\bibcite{everingham2015pascal}{16}
-\bibcite{jia2014caffe}{17}
-\bibcite{krizhevsky2012imagenet}{18}
-\bibcite{gong2012geodesic}{19}
-\bibcite{fernando2013unsupervised}{20}
-\bibcite{tommasi2013frustratingly}{21}
-\bibcite{chopra2013dlid}{22}
-\bibcite{donahue2013decaf}{23}
+\bibcite{leibe2005pedestrian}{9}
+\bibcite{barinova2012detection}{10}
+\bibcite{sermanet2013overfeat}{11}
+\bibcite{girshick2014rich}{12}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces One kernel at $x_s$ ({\it  dotted kernel}) or two kernels at $x_i$ and $x_j$ ({\it  left and right}) }}{24}}
+\newlabel{fig:example}{{11}{24}}
+\bibcite{zhang2015filtered}{13}
+\bibcite{mesnil2012unsupervised}{14}
+\bibcite{gong2013connecting}{15}
+\bibcite{ghifary2014domain}{16}
+\bibcite{pishchulin2011learning}{17}
+\bibcite{girshick2015fast}{18}
+\bibcite{szegedy2015going}{19}
+\bibcite{vu2015context}{20}
+\bibcite{everingham2015pascal}{21}
+\bibcite{jia2014caffe}{22}
+\bibcite{krizhevsky2012imagenet}{23}
+\bibcite{gong2012geodesic}{24}
+\bibcite{fernando2013unsupervised}{25}
+\bibcite{tommasi2013frustratingly}{26}
+\bibcite{chopra2013dlid}{27}
+\bibcite{donahue2013decaf}{28}
