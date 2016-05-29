@@ -1,20 +1,18 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.5.27)  28 MAY 2016 22:03
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.10)  30 MAY 2016 02:52
 entering extended mode
-**C:/New*Dist*Assumption/Graduation*Project/ECCV2016-Workshop*on*Crowd*Understa
-nding/Reinspect.report.cn/eccv2016submission.tex
+**D:/Course/graduation*project/ECCV2016*Workshop/Reinspect.report.cn/eccv2016su
+bmission.tex
 
-("C:/New Dist Assumption/Graduation Project/ECCV2016-Workshop on Crowd Understa
-nding/Reinspect.report.cn/eccv2016submission.tex"
+("D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/eccv2016su
+bmission.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for loaded.
-
-("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\Reinspect.report.cn\llncs.cls"
+("D:\Course\graduation project\ECCV2016 Workshop\Reinspect.report.cn\llncs.cls"
 Document Class: llncs 2013/09/27 v2.18 
  LaTeX document class for Lecture Notes in Computer Science
-(C:\CTEX\MiKTeX\tex\latex\base\article.cls
+("F:\Program Files\CTEX\MiKTeX\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(C:\CTEX\MiKTeX\tex\latex\base\size10.clo
+("F:\Program Files\CTEX\MiKTeX\tex\latex\base\size10.clo"
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -29,7 +27,7 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(C:\CTEX\MiKTeX\tex\latex\tools\multicol.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\tools\multicol.sty"
 Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \c@tracingmulticols=\count87
 \mult@box=\box26
@@ -77,10 +75,10 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \colbreak@box=\box51
 \multicol@sort@counter=\count95
 )
-(C:\CTEX\MiKTeX\tex\latex\oberdiek\aliascnt.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\oberdiek\aliascnt.sty"
 Package: aliascnt 2009/09/08 v1.3 Alias counter (HO)
 
-(C:\CTEX\MiKTeX\tex\latex\carlisle\remreset.sty))
+("F:\Program Files\CTEX\MiKTeX\tex\latex\carlisle\remreset.sty"))
 \c@chapter=\count96
 LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 362.
 LaTeX Font Info:    Redeclaring math symbol \Delta on input line 363.
@@ -132,31 +130,31 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \c@remark=\count115
 \headlineindent=\dimen123
 )
-(C:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks18
 )
-(C:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\CTEX\MiKTeX\tex\latex\graphics\trig.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(C:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg
+("F:\Program Files\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(C:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def
+("F:\Program Files\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(C:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty
+("F:\Program Files\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
 )
-(C:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
+("F:\Program Files\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count116
@@ -164,24 +162,24 @@ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen124
 \Gin@req@width=\dimen125
 )
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsmath.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amsmath.sty"
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip45
 
 For additional information on amsmath, use the `?' option.
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amstext.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsgen.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks19
 \ex@=\dimen126
 ))
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsbsy.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen127
 )
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsopn.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\ams\math\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count117
@@ -225,21 +223,21 @@ Package amsmath Warning: Unable to redefine math accent \vec.
 \mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
-) (C:\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty
+) ("F:\Program Files\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2009/06/22 v3.00
 
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(C:\CTEX\MiKTeX\tex\latex\algorithms\algorithm.sty
+("F:\Program Files\CTEX\UserData\tex\latex\algorithms\algorithm.sty"
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 
-(C:\CTEX\MiKTeX\tex\latex\float\float.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count129
 \float@exts=\toks24
@@ -247,16 +245,16 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks25
 \@floatcapt=\box57
 )
-(C:\CTEX\MiKTeX\tex\latex\base\ifthen.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks26
 \c@algorithm=\count130
 )
-(C:\CTEX\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+("F:\Program Files\CTEX\UserData\tex\latex\algorithmicx\algpseudocode.sty"
 Package: algpseudocode 
 
-(C:\CTEX\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+("F:\Program Files\CTEX\UserData\tex\latex\algorithmicx\algorithmicx.sty"
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
@@ -272,17 +270,16 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip50
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-)
-("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\Reinspect.report.cn\ruler.sty"
+) ("D:\Course\graduation project\ECCV2016 Workshop\Reinspect.report.cn\ruler.st
+y"
 Package: ruler 
 
-("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\Reinspect.report.cn\eso-pic.sty"
+("D:\Course\graduation project\ECCV2016 Workshop\Reinspect.report.cn\eso-pic.st
+y"
 Package: eso-pic 2002/11/16 v1.1b eso-pic (RN)
 
-("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\Reinspect.report.cn\cvpr_eso.sty"
+("D:\Course\graduation project\ECCV2016 Workshop\Reinspect.report.cn\cvpr_eso.s
+ty"
 
 LaTeX Warning: You have requested package `eso-pic',
                but the package provides `cvpr_eso'.
@@ -300,38 +297,38 @@ Package: cvpr_eso 2011/12/13 v1.00 CVPR ESO based on everyshi
 \cv@tot=\count141
 \cv@tmpc@=\count142
 \cv@tmpc=\count143
-) (C:\CTEX\MiKTeX\tex\latex\cjk\CJK.sty
+) ("F:\Program Files\CTEX\MiKTeX\tex\latex\cjk\CJK.sty"
 Package: CJK 2008/12/29 4.8.2
 
-(C:\CTEX\MiKTeX\tex\latex\cjk\mule\MULEenc.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\cjk\mule\MULEenc.sty"
 Package: MULEenc 2008/12/29 4.8.2
 )
-(C:\CTEX\MiKTeX\tex\latex\cjk\CJK.enc
+("F:\Program Files\CTEX\MiKTeX\tex\latex\cjk\CJK.enc"
 File: CJK.enc 2008/12/29 4.8.2
 )
 LaTeX Info: Redefining \selectfont on input line 756.
 \CJK@indent=\box60
 )
-(C:\CTEX\MiKTeX\tex\latex\graphics\color.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\graphics\color.sty"
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
-(C:\CTEX\MiKTeX\tex\latex\00miktex\color.cfg
+("F:\Program Files\CTEX\MiKTeX\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-(C:\CTEX\MiKTeX\tex\latex\geometry\geometry.sty
+("F:\Program Files\CTEX\MiKTeX\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(C:\CTEX\MiKTeX\tex\generic\oberdiek\ifpdf.sty
+("F:\Program Files\CTEX\MiKTeX\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-(C:\CTEX\MiKTeX\tex\generic\oberdiek\ifvtex.sty
+("F:\Program Files\CTEX\MiKTeX\tex\generic\oberdiek\ifvtex.sty"
 Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
 Package ifvtex Info: VTeX not detected.
 )
-(C:\CTEX\MiKTeX\tex\generic\ifxetex\ifxetex.sty
+("F:\Program Files\CTEX\MiKTeX\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count144
@@ -347,35 +344,11 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen145
 \Gm@dimlist=\toks27
 
-(C:\CTEX\MiKTeX\tex\latex\geometry\geometry.cfg))
-("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\Reinspect.report.cn\eccv2016submission.aux"
+("F:\Program Files\CTEX\MiKTeX\tex\latex\geometry\geometry.cfg"))
+("D:\Course\graduation project\ECCV2016 Workshop\Reinspect.report.cn\eccv2016su
+bmission.aux"
 
-LaTeX Warning: Label `fig:example' multiply defined.
-
-
-LaTeX Warning: Label `fig:example' multiply defined.
-
-
-LaTeX Warning: Label `fig:example' multiply defined.
-
-
-LaTeX Warning: Label `fig:example' multiply defined.
-
-
-LaTeX Warning: Label `fig:example' multiply defined.
-
-
-LaTeX Warning: Label `fig:example' multiply defined.
-
-
-LaTeX Warning: Label `fig:example' multiply defined.
-
-
-LaTeX Warning: Label `fig:example' multiply defined.
-
-
-LaTeX Warning: Label `fig:example' multiply defined.
+LaTeX Warning: Label `fig:secondcarteen' multiply defined.
 
 
 LaTeX Warning: Label `fig:example' multiply defined.
@@ -457,7 +430,7 @@ LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
- (C:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
+ ("F:\Program Files\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count147
 \scratchdimen=\dimen146
@@ -506,29 +479,30 @@ LaTeX Font Info:    ... okay on input line 13.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 32.
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
+("F:\Program Files\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
+("F:\Program Files\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-(C:\CTEX\MiKTeX\tex\latex\cjk\standard.bdg
+("F:\Program Files\CTEX\MiKTeX\tex\latex\cjk\standard.bdg"
 File: standard.bdg 2008/12/29 4.8.2
 )
-(C:\CTEX\MiKTeX\tex\latex\cjk\extended.enc
+("F:\Program Files\CTEX\MiKTeX\tex\latex\cjk\extended.enc"
 File: extended.enc 2008/12/29 4.8.2
 )
-(C:\CTEX\MiKTeX\tex\latex\cjk\extended.chr
+("F:\Program Files\CTEX\MiKTeX\tex\latex\cjk\extended.chr"
 File: extended.chr 2008/12/29 4.8.2
 )
 LaTeX Font Info:    Try loading font information for C19+song on input line 37.
 
 
-(C:\CTEX\CTeX\tex\latex\CJK\GB\c19song.fd
+("F:\Program Files\CTEX\CTeX\tex\latex\CJK\GB\c19song.fd"
 File: c19song.fd 2009/09/23 4.8.2
-) [1{C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}
+) [1{F:/Program Files/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.
+sfd}}
 
 
 ]
@@ -555,140 +529,164 @@ C19/song/m/n/10/40  \C19/song/m/n/10/43  \C19/song/m/n/10/57 ” A \C19/song/m/
 n/10/64  \C19/song/m/n/10/25 "\OT1/cmr/m/n/10 Saenko
  []
 
-[3] [4] <images/fastrcnn.png, id=54, 727.21687pt x 289.83281pt>
+[3] <images/alexnet.png, id=51, 653.44125pt x 216.05719pt>
+File: images/alexnet.png Graphic file (type png)
+
+<use images/alexnet.png>
+Package pdftex.def Info: images/alexnet.png used on input line 95.
+(pdftex.def)             Requested size: 344.20842pt x 113.81102pt.
+ [4 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/images/
+alexnet.png>]
+<images/fastrcnn.png, id=57, 727.21687pt x 289.83281pt>
 File: images/fastrcnn.png Graphic file (type png)
 
 <use images/fastrcnn.png>
-Package pdftex.def Info: images/fastrcnn.png used on input line 107.
+Package pdftex.def Info: images/fastrcnn.png used on input line 114.
 (pdftex.def)             Requested size: 321.2525pt x 128.0374pt.
- [5 <C:/New Dist Assumption/Graduation Project/ECCV2016-Workshop on Crowd Under
-standing/Reinspect.report.cn/images/fastrcnn.png>]
-<images/fastrcnnresult.png, id=60, 724.05084pt x 325.5527pt>
+ [5 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/images/
+fastrcnn.png>]
+<images/fastrcnnresult.png, id=62, 724.05084pt x 325.5527pt>
 File: images/fastrcnnresult.png Graphic file (type png)
 
 <use images/fastrcnnresult.png>
-Package pdftex.def Info: images/fastrcnnresult.png used on input line 127.
+Package pdftex.def Info: images/fastrcnnresult.png used on input line 134.
 (pdftex.def)             Requested size: 348.04866pt x 156.49014pt.
 
-Overfull \hbox (0.92505pt too wide) in paragraph at lines 127--128
+Overfull \hbox (0.92505pt too wide) in paragraph at lines 134--135
  [][] 
  []
 
-[6 <C:/New Dist Assumption/Graduation Project/ECCV2016-Workshop on Crowd Unders
-tanding/Reinspect.report.cn/images/fastrcnnresult.png>]
-<images/rnn.png, id=65, 648.17157pt x 249.93375pt>
+[6 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/images/f
+astrcnnresult.png>] <images/rnn.png, id=67, 648.17157pt x 249.93375pt>
 File: images/rnn.png Graphic file (type png)
- <use images/rnn.png>
-Package pdftex.def Info: images/rnn.png used on input line 141.
-(pdftex.def)             Requested size: 332.05656pt x 128.0374pt.
 
-<images/lstm.png, id=66, 680.5425pt x 510.40688pt>
+<use images/rnn.png>
+Package pdftex.def Info: images/rnn.png used on input line 148.
+(pdftex.def)             Requested size: 332.05656pt x 128.0374pt.
+ [7 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/images/
+rnn.png>]
+<images/lstm.png, id=73, 680.5425pt x 510.40688pt>
 File: images/lstm.png Graphic file (type png)
  <use images/lstm.png>
-Package pdftex.def Info: images/lstm.png used on input line 159.
-(pdftex.def)             Requested size: 170.71672pt x 128.0374pt.
+Package pdftex.def Info: images/lstm.png used on input line 166.
+(pdftex.def)             Requested size: 284.52786pt x 213.39566pt.
 
-[7 <C:/New Dist Assumption/Graduation Project/ECCV2016-Workshop on Crowd Unders
-tanding/Reinspect.report.cn/images/rnn.png>] [8 <C:/New Dist Assumption/Graduat
-ion Project/ECCV2016-Workshop on Crowd Understanding/Reinspect.report.cn/images
-/lstm.png>] [9] [10]
-Overfull \hbox (48.32103pt too wide) in paragraph at lines 222--223
-[]\C19/song/m/n/10/54 X \C19/song/bx/n/10/43 J \C19/song/bx/n/10/45 Ú \C19/cmss
-/m/n/10/46 Œ \C19/song/m/n/10/38 | \C19/cmss/m/n/10/46 µ \C19/song/bx/n/10/60 ‘
- \C19/song/bx/n/10/48 ˆ \C19/song/bx/n/10/40  \C19/song/bx/n/10/55   \C19/cmss
-/m/n/10/46 ≤ \C19/song/bx/n/10/58  \C19/song/bx/n/10/49 ‰ \C19/song/m/n/10/64 
-Ü \C19/cmss/m/n/10/46  \C19/song/bx/n/10/45 u \C19/song/bx/n/10/37 ˇ \C19/song
-/bx/n/10/60 # \C19/song/m/n/10/38 | \C19/cmss/m/n/10/46 µ \C19/song/m/n/10/26 ß
- \C19/song/bx/n/10/51 @ \C19/song/m/n/10/50 o \C19/song/m/n/10/52 Ÿ\OT1/cmr/m/n
-/10 precision\C19/song/bx/n/10/58 è$\OT1/cmr/m/n/10 91%$\C19/song/m/n/10/26 ß\O
-T1/cmr/m/n/10 recall\C19/song/bx/n/10/58 è$\OT1/cmr/m/n/10 18%$\C19/song/m/n/10
-/26 ß
+[8 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/images/l
+stm.png>] [9] [10]
+<images/secondcarteen.png, id=91, 587.94656pt x 310.15875pt>
+File: images/secondcarteen.png Graphic file (type png)
+
+<use images/secondcarteen.png>
+Package pdftex.def Info: images/secondcarteen.png used on input line 213.
+(pdftex.def)             Requested size: 350.58165pt x 184.9429pt.
+
+Overfull \hbox (3.45804pt too wide) in paragraph at lines 213--214
+ [][] 
  []
 
-[11] [12] <images/streams.png, id=97, 455.45157pt x 210.7875pt>
-File: images/streams.png Graphic file (type png)
+<images/finetuningresult.png, id=92, 722.7pt x 336.2964pt>
+File: images/finetuningresult.png Graphic file (type png)
 
-<use images/streams.png>
-Package pdftex.def Info: images/streams.png used on input line 245.
-(pdftex.def)             Requested size: 276.65752pt x 128.0374pt.
- [13 <C:/New Dist Assumption/Graduation Project/ECCV2016-Workshop on Crowd Unde
-rstanding/Reinspect.report.cn/images/streams.png>]
-<images/dummyimage.png, id=106, 503.63156pt x 188.20313pt>
-File: images/dummyimage.png Graphic file (type png)
+<use images/finetuningresult.png>
+Package pdftex.def Info: images/finetuningresult.png used on input line 225.
+(pdftex.def)             Requested size: 336.30565pt x 156.49014pt.
+ [11]
+Overfull \hbox (48.32103pt too wide) in paragraph at lines 242--243
+[]\C19/song/m/n/10/54 X \C19/song/bx/n/10/43 J \C19/song/bx/n/10/45 Ú \C19/song
+/bx/n/10/46 Œ \C19/song/m/n/10/38 | \C19/song/bx/n/10/46 µ \C19/song/bx/n/10/60
+ ‘ \C19/song/bx/n/10/48 ˆ \C19/song/bx/n/10/40  \C19/song/bx/n/10/55   \C19/so
+ng/bx/n/10/46 ≤ \C19/song/bx/n/10/58  \C19/song/bx/n/10/49 ‰ \C19/song/m/n/10/
+64 Ü \C19/song/bx/n/10/46  \C19/song/bx/n/10/45 u \C19/song/bx/n/10/37 ˇ \C19/
+song/bx/n/10/60 # \C19/song/m/n/10/38 | \C19/song/bx/n/10/46 µ \C19/song/m/n/10
+/26 ß \C19/song/bx/n/10/51 @ \C19/song/m/n/10/50 o \C19/song/m/n/10/52 Ÿ\OT1/cm
+r/m/n/10 precision\C19/song/bx/n/10/58 è$\OT1/cmr/m/n/10 91%$\C19/song/m/n/10/2
+6 ß\OT1/cmr/m/n/10 recall\C19/song/bx/n/10/58 è$\OT1/cmr/m/n/10 18%$\C19/song/m
+/n/10/26 ß
+ []
 
-<use images/dummyimage.png>
-Package pdftex.def Info: images/dummyimage.png used on input line 270.
-(pdftex.def)             Requested size: 342.64935pt x 128.0374pt.
- [14 <C:/New Dist Assumption/Graduation Project/ECCV2016-Workshop on Crowd Unde
-rstanding/Reinspect.report.cn/images/dummyimage.png>]
-Underfull \vbox (badness 5607) has occurred while \output is active []
+[12 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/images/
+secondcarteen.png>]
+<images/architecture.png, id=101, 853.68938pt x 490.83376pt>
+File: images/architecture.png Graphic file (type png)
 
- [15]
-<images/mmd.png, id=116, 481.8pt x 361.35pt>
-File: images/mmd.png Graphic file (type png)
- <use images/mmd.png>
-Package pdftex.def Info: images/mmd.png used on input line 329.
-(pdftex.def)             Requested size: 170.71304pt x 128.0374pt.
- [16 <C:/New Dist Assumption/Graduation Project/ECCV2016-Workshop on Crowd Unde
-rstanding/Reinspect.report.cn/images/mmd.png>]
-<images/fullconnectlayers.png, id=121, 377.91188pt x 154.32657pt>
-File: images/fullconnectlayers.png Graphic file (type png)
+<use images/architecture.png>
+Package pdftex.def Info: images/architecture.png used on input line 255.
+(pdftex.def)             Requested size: 346.40665pt x 199.16928pt.
+ [13 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/images
+/finetuningresult.png>]
+<images/reinspect.png, id=108, 1131.2664pt x 465.4188pt>
+File: images/reinspect.png Graphic file (type png)
 
-<use images/fullconnectlayers.png>
-Package pdftex.def Info: images/fullconnectlayers.png used on input line 352.
-(pdftex.def)             Requested size: 313.56297pt x 128.0374pt.
+<use images/reinspect.png>
+Package pdftex.def Info: images/reinspect.png used on input line 278.
+(pdftex.def)             Requested size: 311.21143pt x 128.0374pt.
+ [14 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/images
+/architecture.png>] [15 <D:/Course/graduation project/ECCV2016 Workshop/Reinspe
+ct.report.cn/images/reinspect.png>] [16]
+<images/elementwiselayer.png, id=120, 944.8098pt x 610.9224pt>
+File: images/elementwiselayer.png Graphic file (type png)
 
-<images/precisionrecall.png, id=122, 499.11469pt x 282.30469pt>
-File: images/precisionrecall.png Graphic file (type png)
-
-<use images/precisionrecall.png>
-Package pdftex.def Info: images/precisionrecall.png used on input line 367.
-(pdftex.def)             Requested size: 226.37402pt x 128.0374pt.
- [17] [18 <C:/New Dist Assumption/Graduation Project/ECCV2016-Workshop on Crowd
- Understanding/Reinspect.report.cn/images/fullconnectlayers.png> <C:/New Dist A
-ssumption/Graduation Project/ECCV2016-Workshop on Crowd Understanding/Reinspect
-.report.cn/images/precisionrecall.png>]
-Overfull \hbox (2.87656pt too wide) in paragraph at lines 378--379
+<use images/elementwiselayer.png>
+Package pdftex.def Info: images/elementwiselayer.png used on input line 345.
+(pdftex.def)             Requested size: 330.02522pt x 213.39566pt.
+ [17] [18 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/i
+mages/elementwiselayer.png>]
+Overfull \hbox (2.87656pt too wide) in paragraph at lines 375--376
 \C19/song/bx/n/10/43 π \C19/song/bx/n/10/49 
 \OT1/cmr/m/n/10 3\C19/song/m/n/10/42 á \C19/song/bx/n/10/39 ñ \C19/song/bx/n/10
-/53 [ \C19/song/bx/n/10/61 £ \C19/song/bx/n/10/38 | \C19/cmss/m/n/10/46 µ \C19/
-cmss/m/n/10/40  \C19/song/bx/n/10/55 Í \C19/cmss/m/n/10/46 ‚ \C19/song/bx/n/10
-/45 8 \C19/song/m/n/10/25 " \C19/song/bx/n/10/63 ˘ \C19/song/m/n/10/54 n \C19/s
-ong/m/n/10/42 á \C19/song/bx/n/10/39 ñ \C19/song/bx/n/10/53 [ \C19/song/bx/n/10
-/61 £ \C19/song/bx/n/10/38 | \C19/cmss/m/n/10/46 µ \C19/song/bx/n/10/41 © \C19/
-song/bx/n/10/37 O \C19/song/m/n/10/36 ù \C19/song/bx/n/10/43 π \C19/song/bx/n/1
-0/49 
+/53 [ \C19/song/bx/n/10/61 £ \C19/song/bx/n/10/38 | \C19/song/bx/n/10/46 µ \C19
+/song/bx/n/10/40  \C19/song/bx/n/10/55 Í \C19/song/bx/n/10/46 ‚ \C19/song/bx/n
+/10/45 8 \C19/song/m/n/10/25 " \C19/cmss/m/n/10/63 ˘ \C19/song/m/n/10/54 n \C19
+/song/m/n/10/42 á \C19/song/bx/n/10/39 ñ \C19/song/bx/n/10/53 [ \C19/song/bx/n/
+10/61 £ \C19/song/bx/n/10/38 | \C19/song/bx/n/10/46 µ \C19/song/bx/n/10/41 © \C
+19/song/bx/n/10/37 O \C19/song/m/n/10/36 ù \C19/song/bx/n/10/43 π \C19/song/bx/
+n/10/49 
 \OT1/cmr/m/n/10 1308\C19/song/m/n/10/26 ß\OT1/cmr/m/n/10 1213\C19/song/bx/n/10/
-43 ⁄\OT1/cmr/m/n/10 331\C19/song/bx/n/10/63 ‹
+43 ⁄\OT1/cmr/m/n/10 331\C19/cmss/m/n/10/63 ‹
  []
 
-[19] [20] <images/officeimages.png, id=138, 493.845pt x 164.11313pt>
+<images/precisionrecallcurve.png, id=133, 464.4853pt x 408.77719pt>
+File: images/precisionrecallcurve.png Graphic file (type png)
+
+<use images/precisionrecallcurve.png>
+Package pdftex.def Info: images/precisionrecallcurve.png used on input line 389
+.
+(pdftex.def)             Requested size: 258.6429pt x 227.62204pt.
+
+<images/f1score.png, id=134, 658.71094pt x 344.78813pt>
+File: images/f1score.png Graphic file (type png)
+
+<use images/f1score.png>
+Package pdftex.def Info: images/f1score.png used on input line 396.
+(pdftex.def)             Requested size: 326.14835pt x 170.71652pt.
+ [19] [20 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/i
+mages/precisionrecallcurve.png (PNG copy)> <D:/Course/graduation project/ECCV20
+16 Workshop/Reinspect.report.cn/images/f1score.png (PNG copy)>] [21] <images/of
+ficeimages.png, id=145, 834.86906pt x 228.855pt>
 File: images/officeimages.png Graphic file (type png)
 
 <use images/officeimages.png>
-Package pdftex.def Info: images/officeimages.png used on input line 446.
-(pdftex.def)             Requested size: 342.47902pt x 113.81102pt.
- [21 <C:/New Dist Assumption/Graduation Project/ECCV2016-Workshop on Crowd Unde
-rstanding/Reinspect.report.cn/images/officeimages.png>] [22] <images/detectionr
-esult.png, id=147, 1047.915pt x 1178.4828pt>
+Package pdftex.def Info: images/officeimages.png used on input line 457.
+(pdftex.def)             Requested size: 342.52783pt x 93.89418pt.
+ [22 <D:/Course/graduation project/ECCV2016 Workshop/Reinspect.report.cn/images
+/officeimages.png>] [23]
+<images/detectionresult.png, id=153, 1047.915pt x 1178.4828pt>
 File: images/detectionresult.png Graphic file (type png)
 
 <use images/detectionresult.png>
-Package pdftex.def Info: images/detectionresult.png used on input line 503.
+Package pdftex.def Info: images/detectionresult.png used on input line 513.
 (pdftex.def)             Requested size: 328.89572pt x 369.88582pt.
 
-("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\Reinspect.report.cn\eccv2016submission.bbl" [23] [24 <C:/New Dist Assumpt
-ion/Graduation Project/ECCV2016-Workshop on Crowd Understanding/Reinspect.repor
-t.cn/images/detectionresult.png
+("D:\Course\graduation project\ECCV2016 Workshop\Reinspect.report.cn\eccv2016su
+bmission.bbl" [24] [25 <D:/Course/graduation project/ECCV2016 Workshop/Reinspec
+t.report.cn/images/detectionresult.png
 
-pdfTeX warning: pdflatex.exe (file C:/New Dist Assumption/Graduation Project/EC
-CV2016-Workshop on Crowd Understanding/Reinspect.report.cn/images/detectionresu
-lt.png): large interlaced PNG might cause out of memory (use non-interlaced PNG
- to fix this)
->] [25]) [26]
-("C:\New Dist Assumption\Graduation Project\ECCV2016-Workshop on Crowd Understa
-nding\Reinspect.report.cn\eccv2016submission.aux")
+pdfTeX warning: pdflatex.exe (file D:/Course/graduation project/ECCV2016 Worksh
+op/Reinspect.report.cn/images/detectionresult.png): large interlaced PNG might 
+cause out of memory (use non-interlaced PNG to fix this)
+>] [26]) [27]
+("D:\Course\graduation project\ECCV2016 Workshop\Reinspect.report.cn\eccv2016su
+bmission.aux")
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -697,53 +695,62 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5837 strings out of 495354
- 80601 string characters out of 3183859
- 165976 words of memory out of 3000000
- 8857 multiletter control sequences out of 15000+200000
- 39823 words of font info for 139 fonts, out of 3000000 for 9000
+ 5864 strings out of 495354
+ 82125 string characters out of 3183075
+ 167156 words of memory out of 3000000
+ 8882 multiletter control sequences out of 15000+200000
+ 39180 words of font info for 137 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 40i,10n,41p,1649b,591s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/
-chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTe
-X/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun
-.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truety
-pe/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/
-CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/sim
-sun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/tru
-etype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CT
-EX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/
-simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/
-truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:
-/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chine
-se/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fon
-ts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf>
-<C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/ch
-inese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/
-fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.t
-tf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype
-/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CT
-eX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsu
-n.ttf><C:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><C:/CTEX/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmbx10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/CTEX/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/CTEX/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/CTEX/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/CTEX/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmmi7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C
-:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/CTEX/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr6.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/CTEX/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/CTEX/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmss10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pf
-b><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/CTEX/MiKTeX/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmsy7.pfb><C:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/CT
-EX/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on eccv2016submission.pdf (26 pages, 12225044 bytes).
+ 40i,10n,41p,1613b,595s stack positions out of 5000i,500n,10000p,200000b,50000s
+<F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Fil
+es/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/font
+s/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chines
+e/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/
+Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTE
+X/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/true
+type/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/sims
+un.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Progra
+m Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX
+/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/c
+hinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf
+><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program File
+s/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts
+/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese
+/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/P
+rogram Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX
+/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truet
+ype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsu
+n.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program
+ Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/
+fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/ch
+inese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf>
+<F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files
+/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/
+truetype/chinese/simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/
+simsun.ttf><F:/Program Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Pr
+ogram Files/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf><F:/Program Files/CTEX/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><F:/Program Files/CTEX/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmbx12.pfb><F:/Program Files/CTEX/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmbx9.pfb><F:/Program Files/CTEX/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmcsc10.pfb><F:/Program Files/CTEX/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmex10.pfb><F:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb><F:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
+5.pfb><F:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><F
+:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><F:/Progra
+m Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><F:/Program Files/
+CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><F:/Program Files/CTEX/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><F:/Program Files/CTEX/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr6.pfb><F:/Program Files/CTEX/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmr7.pfb><F:/Program Files/CTEX/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr9.pfb><F:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmss10.pfb><F:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8
+.pfb><F:/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><F:
+/Program Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><F:/Progra
+m Files/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><F:/Program Files/
+CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on eccv2016submission.pdf (27 pages, 13962675 bytes).
 PDF statistics:
- 332 PDF objects out of 1000 (max. 8388607)
+ 336 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 
