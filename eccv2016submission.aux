@@ -1,11 +1,13 @@
 \relax 
-\@writefile{toc}{\contentsline {title}{Unsupervised Deep Domain Adaptation on People Detection}{1}}
+\@writefile{toc}{\contentsline {title}{在人物检测中实现无监督学习下深度场景迁移}{1}}
 \@writefile{toc}{\authcount {1}}
-\@writefile{toc}{\contentsline {author}{Anonymous ECCV submission}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
+\@writefile{toc}{\contentsline {author}{刘荔行}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}介绍}{1}}
 \citation{saenko2010adapting,kulis2011you,gopalan2011domain,huang2006correcting,gretton2009covariate}
 \citation{wang2014scene,zeng2014deep,hattori2015learning}
 \citation{leibe2005pedestrian,barinova2012detection}
+\@writefile{toc}{\contentsline {section}{\numberline {2}相关工作}{2}}
+\newlabel{section:Relate Work}{{2}{2}}
 \citation{sermanet2013overfeat,girshick2014rich,zhang2015filtered}
 \citation{saenko2010adapting,kulis2011you}
 \citation{gopalan2011domain}
@@ -15,8 +17,6 @@
 \citation{wang2014scene,zeng2014deep}
 \citation{hattori2015learning}
 \citation{pishchulin2011learning}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Relate Work}{3}}
-\newlabel{section:Relate Work}{{2}{3}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}检测网络的构建}{3}}
 \citation{girshick2015fast}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}卷积神经网络+前馈神经网络的方法}{4}}
@@ -29,8 +29,8 @@
 \@writefile{toc}{\contentsline {subsubsection}{存在的问题}{5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Fast R-CNN的实验结果图。从图中可以看出算法的召回率和准确率都不高。}}{6}}
 \newlabel{fig:fastrcnnresult}{{3}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}卷积神经网络+递归神经网络的方法}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{递归神经网络}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}卷积神经网络+递归神经网络的方法}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{递归神经网络}{6}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 递归神经网络}}{7}}
 \newlabel{fig:rnn}{{4}{7}}
 \@writefile{toc}{\contentsline {subsubsection}{LSTM}{8}}
@@ -45,30 +45,30 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}有监督学习的实验结果}{11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 采集的某一个大学餐厅的数据集示意图}}{12}}
 \newlabel{fig:secondcarteen}{{6}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 基于卷积神经网络+递归神经网络的方法的检测网络算法在有监督的情况下在采集到的数据集上的训练效果。}}{13}}
-\newlabel{fig:secondcarteen}{{7}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 基于卷积神经网络+递归神经网络的方法的检测网络算法在有监督的情况下在采集到的数据集上的训练效果。}}{12}}
+\newlabel{fig:secondcarteen}{{7}{12}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}我们的迁移方法}{13}}
 \newlabel{section:Our Approach}{{5}{13}}
-\citation{szegedy2015going}
-\citation{girshick2015fast,vu2015context}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 迁移学习框架}}{14}}
 \newlabel{fig:architecture}{{8}{14}}
 \newlabel{Eq:lmmd}{{4}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}检测网络}{14}}
-\newlabel{section:Detection Network}{{5.1}{14}}
+\citation{szegedy2015going}
+\citation{girshick2015fast,vu2015context}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}检测网络}{15}}
+\newlabel{section:Detection Network}{{5.1}{15}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 迁移算法中使用的检测网络}}{15}}
 \newlabel{fig:example}{{9}{15}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}迭代算法}{16}}
 \newlabel{Section:Iterative Algorithm}{{5.2}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}元素点乘层与无监督正则化函数}{16}}
-\newlabel{section:Element-wise Multiply Layer}{{5.3}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{元素点乘层}{16}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Deep domain adaptation algorithm (to be completed)}}{17}}
 \newlabel{algorithm:Deep domain adaptation algorithm (to be completed)}{{1}{17}}
-\newlabel{Section:Unsupervised weights regularizer on Element-wise Multiply Layer}{{5.3}{17}}
-\@writefile{toc}{\contentsline {subsubsection}{无监督正则化函数}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}元素点乘层与无监督正则化函数}{17}}
+\newlabel{section:Element-wise Multiply Layer}{{5.3}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{元素点乘层}{17}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces 将full connected layer转化为element-wise layer和sum layer的示意图。}}{18}}
 \newlabel{fig:elementwiselayer}{{10}{18}}
+\newlabel{Section:Unsupervised weights regularizer on Element-wise Multiply Layer}{{5.3}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{无监督正则化函数}{18}}
 \newlabel{equation:LMMD}{{9}{18}}
 \citation{everingham2015pascal}
 \citation{jia2014caffe}
@@ -79,17 +79,15 @@
 \@writefile{toc}{\contentsline {subsubsection}{实验设定}{19}}
 \@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces 4种对比方法在待迁移场景1中的准确率-召回率曲线。}}{20}}
 \newlabel{fig:precisionrecallcurve}{{11}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces 随着迭代次数的增加，4种对比方法在待迁移场景1中的F1值的变化。}}{20}}
-\newlabel{fig:f1score}{{12}{20}}
-\@writefile{toc}{\contentsline {subsubsection}{对比方法}{21}}
+\@writefile{toc}{\contentsline {subsubsection}{对比方法}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces 随着迭代次数的增加，4种对比方法在待迁移场景1中的F1值的变化。}}{21}}
+\newlabel{fig:f1score}{{12}{21}}
 \newlabel{table:detectiontable}{{6.1}{21}}
 \@writefile{toc}{\contentsline {subsubsection}{实验结果}{21}}
 \citation{saenko2010adapting}
 \citation{krizhevsky2012imagenet}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2}标准场景迁移基准数据集}{22}}
 \@writefile{toc}{\contentsline {subsubsection}{Office数据集}{22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Office数据集的示意图片}}{22}}
-\newlabel{fig:officeimages}{{13}{22}}
 \@writefile{toc}{\contentsline {subsubsection}{实验设定和模型设计}{22}}
 \citation{gong2012geodesic}
 \citation{fernando2013unsupervised}
@@ -97,6 +95,8 @@
 \citation{chopra2013dlid}
 \citation{donahue2013decaf}
 \citation{ghifary2014domain}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Office数据集的示意图片}}{23}}
+\newlabel{fig:officeimages}{{13}{23}}
 \@writefile{toc}{\contentsline {subsubsection}{实验结果}{23}}
 \@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{23}}
 \newlabel{section:Conclusions}{{7}{23}}
@@ -108,10 +108,10 @@
 \bibcite{huang2006correcting}{4}
 \bibcite{gretton2009covariate}{5}
 \bibcite{wang2014scene}{6}
-\bibcite{zeng2014deep}{7}
 \newlabel{table:officetable}{{6.2}{24}}
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces 4种对比方法在3个待迁移场景的实验结果图。}}{25}}
 \newlabel{fig:detectionresult}{{14}{25}}
+\bibcite{zeng2014deep}{7}
 \bibcite{hattori2015learning}{8}
 \bibcite{leibe2005pedestrian}{9}
 \bibcite{barinova2012detection}{10}

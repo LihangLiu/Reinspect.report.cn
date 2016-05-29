@@ -18,20 +18,21 @@
 \pagestyle{headings}
 \mainmatter
 \def\ECCV16SubNumber{***}  % Insert your submission number here
+\begin{CJK*}{GBK}{song}
 
-\title{Unsupervised Deep Domain Adaptation on People Detection} % Replace with your title
+\title{在人物检测中实现无监督学习下深度场景迁移} % Replace with your title
 
 \titlerunning{ECCV-16 submission ID \ECCV16SubNumber}
 
 \authorrunning{ECCV-16 submission ID \ECCV16SubNumber}
 
-\author{Anonymous ECCV submission}
-\institute{Paper ID \ECCV16SubNumber}
+\author{刘荔行}
+\institute{上海交通大学}
 
 
 \maketitle
 
-\begin{CJK*}{GBK}{song}
+
 
 \begin{abstract}
 一方面，本课题将利用卷积神经网络+ 递归神经网络的方法实现人头检测的算法，并与利用卷积神经网络+前馈神经网络实现的检测算法相比较。另一方面，这篇论文提出了基于无监督场景迁移下的在密集人群中人头检测的问题。也就是给定一个在原场景充分训练好的深度神经网络模型，如何在待迁移场景没有任何标记数据的情况下，训练一个能够识别待迁移场景中人物的模型。首先，我们利用迭代算法来自动标记待迁移场景中的人物。由于自动标记出来的人物数据中存在错误数据，假阳性的数据比例会随着训练迅速增加，影响到整个网络。因此我们将原场景中的标记数据加入到训练数据中，来抑制错误数据。同时，我们将神经网络最后的全连通层等价转化为两个子层。在新添加的子层上加入非监督的正则化函数来防止训练过程中的过拟合。跟将原场景中训练的原模型在没有利用待迁移场景的数据来微调得到的结果相比，我们提出的方法将待迁移场景中人物检测的召回率提高了xx,同时precision只从xx掉到xx。与此同时，我们将我们的算法运用到了标准的迁移学习基准数据库Office数据库，我们的方法在监督场景迁移喝非监督场景迁移都取得了最好的结果。
@@ -40,7 +41,7 @@
 
 　　
 
-\section{Introduction}
+\section{介绍}
 
 深度卷积神经网络在计算机视觉的任务上有非常突出的表现，例如语音识别（speech recognition），为视频配字（video captioning）。本课题将利用卷积神经网络+ 递归神经网络的方法实现人头检测的算法，并与利用卷积神经网络+前馈神经网络实现的检测算法相比较。对于经典的物体检测算法，它们首先得到所有可能的物体区域，然后对这些物体区域一一进行检测，并做出判断。然后这样的方法有两个问题，一个在于提取所有的可能物体区域并一一检测，这在上时间上花费巨大，对于监控场景来说，更是很难做到实时的检测。另一方面这个检测算法也严重依赖与提前计算的所有可能的物体区域。这篇文章采用的是端到端的监测网络。端到端就是将一张图片作为输入，网络直接输出将所有可能的物体区域。同时我们利用了递归神经网络进行序列预测的功能，可能很大程度的避免对同一个物体的重复预测。
 
@@ -62,7 +63,7 @@
 这篇文章剩下的部分是这样组织的。首先章节\ref{section:Relate Work}回顾了相关的工作，章节 \ref{section:Our Approach}给出了算法的细节部分，实验部分的结果在章节 \ref{section:Experiment Results} 中做出介绍。章节\ref{section:Conclusions} 总结了这篇论文。
 
 
-\section{Relate Work}
+\section{相关工作}
 \label{section:Relate Work}
 ~
 
